@@ -1,0 +1,15 @@
+@use '../abstracts/mixins' as *;
+.footer {
+  background: #222;
+  color: white;
+  padding: 40px 0;
+
+  &__grid {
+    @include grid(3);
+  }
+
+  a {
+    color: #ccc;
+    text-decoration: none;
+  }
+}

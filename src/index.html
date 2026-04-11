@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Shop</title>
+    <link rel="stylesheet" href="/scss/main.scss" />
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header__wrapper">
+            <div class="header__socials">
+                <a href="#"><img src="/images/facebook.png" alt="facebook" /></a>
+                <a href="#"><img src="/images/twitter.png" alt="twitter" /></a>
+                <a href="#"><img src="/images/instagram.png" alt="instagram" /></a>
+            </div>
+            <div class="logo bold--700">BEST SHOP</div>
+
+            <div class="header__icons">
+                <a href="#"><img src="/images/user.png" alt="Lousergo" /></a>
+                <a href="#"><img src="/images/shopping-cart.png" alt="Shopping Cart" /></a>
+            </div>
+        </div>
+        <hr class="header__divider" />
+        <nav class="nav">
+            <ul class="nav__list">
+                <li><a href="#" class="nav__list__item nav__list__item--active">Home</a></li>
+                <li><a href="#" class="nav__list__item--expandable">Catalog</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero__grid">
+                <div class="hero__content">
+                    <p class="bold--900">Smart Styles for</p>
+                    <p class="bold--900">Every Destination</p>
+                    <div class="hero__description">
+                        <span>Phasellus risus turpis, pretium sit amet magna non, molestie ultricies enim.</span>
+                        <span>Nullam pulvinar felis at metus.</span>
+                    </div>
+                    <a href="#" class="btn btn--primary">View All Items</a>
+                </div>
+                <div class="hero__image">
+                    <img src="images/hero.png" alt="Suitcase" />
+                </div>
+            </div>
+        </section>
+
+        <!-- HERO-CARD -->
+        <section class="hero__card">
+            <div class="hero__card__left">
+                <div class="person">
+                    <img src="images/person.png" alt="Person" />
+                    <div class="person__info">
+                        <p class="bold--700">John Doe</p>
+                        <p>Traveler</p>
+                    </div>
+                </div>
+                <div class="text">
+                    <h2>Aliquam Faucibus Odionec</h2>
+                    <span>Duis vestibulum elit vel neque pharetra vulputate.
+                        Quisque scelerisque nisi urna. Duis rutrum non risus in
+                        imperdiet. Proin molestie accumsan nulla sit.</span>
+                    <span>Namaki duis vestibulum elit vel neque pharetra vulputate.
+                        Quisque scelerisque nisi urna.</span>
+                </div>
+            </div>
+            <div class="hero__card__right">
+                <h3>25% Discount</h3>
+                <span>Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut imperdiet et leo in vulputate.</span>
+                <a href="#" class="btn btn--primary">Get Discount</a>
+            </div>
+        </section>
+
+        <!-- PRODUCTS -->
+        <section class="products container">
+
+            <div class="products__grid">
+                <article class="product-card">
+                    <img src="images/p1.png" alt="">
+                    <h3>Travel Suitcase</h3>
+                    <p>$250</p>
+                    <button class="btn btn--primary">Add To Cart</button>
+                </article>
+
+                <!-- Repeat cards -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div>
+                <h4>About</h4>
+                <p>Information about company</p>
+            </div>
+
+            <div>
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Catalog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Contact</h4>
+                <p>Email: info@email.com</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

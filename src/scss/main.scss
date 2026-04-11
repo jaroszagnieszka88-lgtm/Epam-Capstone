@@ -1,0 +1,103 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'components/buttons';
+@use 'components/product-card';
+@use 'layouts/footer';
+@use 'layouts/header';
+@use 'base/fonts';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: 400;
+  color: $text;
+}
+
+.container {
+  width: 85%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.hero {
+  background: #E7E8E9;
+  padding: 100px 0;
+
+  &__grid {
+    @include grid(5);
+    align-items: center;
+    position: relative;
+
+    div {
+      &:nth-child(1) {
+        grid-column: span 3;
+      }
+    }
+
+    .hero__image {
+      grid-column: span 2;
+      transform: translateX(-20%);
+    }
+  }
+
+  &__description {
+    margin: 40px 0;
+  }
+
+  p {
+    font-size: 2.5rem;
+    color: black;
+  }
+
+  span {
+    display: block;
+  }
+
+  &__card {
+    @include grid(2);
+    margin: 0 220px;
+    background: white;
+    transform: translateY(-20%);
+    box-shadow: 0px 20px 80px 0px #C1C7D4B3;
+
+    &__left {
+      padding:50px;
+      .person {
+        @include grid(2);
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+        &__info {
+
+        }
+      }
+
+      span {}
+    }
+
+    &__right {
+      background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('/images/hero-card-bg.png');
+      span {}
+
+      h2 {}
+    }
+  }
+}
+
+
+.products {
+  margin: 60px auto;
+
+  &__grid {
+    @include grid(4);
+  }
+}
