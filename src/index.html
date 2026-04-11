@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Best Shop</title>
     <link rel="stylesheet" href="/scss/main.scss" />
+    <script src="/ts/main.ts" type="module"></script>
 </head>
 
 <body>
@@ -76,23 +77,96 @@
             </div>
             <div class="hero__card__right">
                 <h3>25 % Discount</h3>
-                <span>Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut imperdiet et leo in vulputate.</span>
+                <span>Curabitur vulputate arcu odio, ac facilisis diam accumsan ut. Ut imperdiet et leo in
+                    vulputate.</span>
                 <p><a href="#" class="btn btn--primary">Get Discount</a></p>
             </div>
         </section>
 
-        <!-- PRODUCTS -->
-        <section class="products container">
+        <!-- TRAVEL SUITCASES -->
+        <section class="container products">
+            <h1>Travel Suitcases</h1>
+            <p>Duis vestibulum elit vel neque pharetra</p>
+            <div class="gallery">
+                <div class="gallery__viewport">
+                    <div class="gallery__track" id="track">
+                        <div class="gallery__slide">
+                            <img src="/images/gallery1.png" alt="Suitcase 1" />
+                            <div class="gallery__slide__overlay">
+                                <div>
+                                    <h2>Duis vestibulum elit vel neque.</h2>
+                                    <p>Duis vestibulum vel neque pharetra vulputate. Quisque scelerisque nisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="/images/gallery2.png" alt="Suitcase 2" />
+                            <div class="gallery__slide__overlay">
+                                <div>
+                                    <h2>Duis vestibulum elit vel neque.</h2>
+                                    <p>Duis vestibulum vel neque pharetra vulputate. Quisque scelerisque nisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="/images/gallery3.png" alt="Suitcase 3" />
+                            <div class="gallery__slide__overlay">
+                                <div>
+                                    <h2>Duis vestibulum elit vel neque.</h2>
+                                    <p>Duis vestibulum vel neque pharetra vulputate. Quisque scelerisque nisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="/images/gallery4.png" alt="Suitcase 4" />
+                            <div class="gallery__slide__overlay">
+                                <div>
+                                    <h2>Duis vestibulum elit vel neque.</h2>
+                                    <p>Duis vestibulum vel neque pharetra vulputate. Quisque scelerisque nisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="/images/gallery1.png" alt="Suitcase 1" />
+                            <div class="gallery__slide__overlay">
+                                <div>
+                                    <h2>Duis vestibulum elit vel neque.</h2>
+                                    <p>Duis vestibulum vel neque pharetra vulputate. Quisque scelerisque nisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="/images/gallery2.png" alt="Suitcase 2" />
+                            <div class="gallery__slide__overlay">
+                                <div>
+                                    <h2>Duis vestibulum elit vel neque.</h2>
+                                    <p>Duis vestibulum vel neque pharetra vulputate. Quisque scelerisque nisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="/images/gallery3.png" alt="Suitcase 3" />
+                            <div class="gallery__slide__overlay">
+                                <div>
+                                    <h2>Duis vestibulum elit vel neque.</h2>
+                                    <p>Duis vestibulum vel neque pharetra vulputate. Quisque scelerisque nisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="/images/gallery4.png" alt="Suitcase 4" />
+                            <div class="gallery__slide__overlay">
+                                <div>
+                                    <h2>Duis vestibulum elit vel neque.</h2>
+                                    <p>Duis vestibulum vel neque pharetra vulputate. Quisque scelerisque nisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="products__grid">
-                <article class="product-card">
-                    <img src="images/p1.png" alt="">
-                    <h3>Travel Suitcase</h3>
-                    <p>$250</p>
-                    <button class="btn btn--primary">Add To Cart</button>
-                </article>
-
-                <!-- Repeat cards -->
+                <button class="gallery__btn gallery__btn--left" id="prev">&#10094;</button>
+                <button class="gallery__btn gallery__btn--right" id="next">&#10095;</button>
             </div>
         </section>
 

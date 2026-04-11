@@ -1,0 +1,105 @@
+@use '../abstracts/mixins' as *;
+
+.gallery {
+    position: relative;
+    margin: 40px auto;
+    overflow: hidden;
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    &__viewport {
+        overflow: hidden;
+    }
+
+    &__track {
+        display: flex;
+        transition: transform 0.4s ease;
+    }
+
+    &__slide {
+        position: relative;
+        overflow: hidden;
+        height: 600px;
+        margin:0 2%;
+        flex: 0 0 calc(84% / 4);
+        cursor: grab;
+
+         &:active {
+            cursor: grabbing;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            transition: background 0.5s ease;
+            z-index: 1;
+        }
+
+        &__overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            padding: 16px;
+            pointer-events: none;
+
+            div {
+                position: absolute;
+                top: 70%;
+                padding: 0 45px;
+                text-align: left;
+
+                h2 {
+                    color: white;
+                    font-size: 18px;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    color: white;
+                    opacity: 0.9;
+                }
+            }
+        }
+
+        &:hover img {
+            transform: scale(1.1);
+        }
+
+        &:hover::after {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.7);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px;
+
+        &--left {
+            left: 5%;
+        }
+
+        &--right {
+            right: 5%;
+        }
+    }
+}

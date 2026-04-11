@@ -1,1 +1,3 @@
-alert("boo")
+import { initGallery } from "./gallery";
+
+initGallery();
