@@ -6,7 +6,7 @@ footer {
     background: #504E4A;
     padding: 40px 0;
 
- background-image: url("data:image/svg+xml,%3Csvg width='200' height='40' viewBox='0 0 200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15 Q50 0 100 15 T200 15' fill='none' stroke='gray' stroke-width='1'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='40' viewBox='0 0 200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15 Q50 0 100 15 T200 15' fill='none' stroke='gray' stroke-width='1'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 200px 40px; // 👈 wider = lower frequency
 
@@ -42,5 +42,103 @@ footer {
       }
     }
 
+  }
+
+  .container.footer__grid {
+    @include grid(2, 150px);
+
+    .footer__links {
+      @include grid(3);
+
+      div {
+        h4 {
+          margin-top: 50px;
+          margin-bottom: 20px;
+          font-size: 15px;
+
+          a {
+            color: black;
+            text-decoration: none;
+          }
+        }
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 170%;
+        }
+      }
+    }
+
+    .shipping__info {
+      h4 {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        color: black;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 170%;
+      }
+    }
+
+    .footer__right {
+
+      h4 {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 15px;
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        letter-spacing: 0%;
+      }
+
+      .contact__info {
+        @include grid(2);
+        margin-top: 20px;
+      }
+
+      .contact__icon {
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding: 10px 0 10px 40px;
+      }
+
+      .contact__phone {
+        background-image: url("/images/contactPhone.png");
+      }
+
+      .contact__email {
+        background-image: url("/images/contactEmail.png");
+      }
+
+      .contact__hours {
+        background-image: url("/images/contactHours.png");
+      }
+
+      .contact__address {
+        background-image: url("/images/contactAddress.png");
+      }
+    }
+
+  }
+  .footer__copyright{
+    margin: 80px auto 40px auto;
+    p{
+      color:lightgray;
+    }
   }
 }
