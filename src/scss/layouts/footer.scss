@@ -1,15 +1,46 @@
 @use '../abstracts/mixins' as *;
-.footer {
-  background: #222;
-  color: white;
-  padding: 40px 0;
+@use '../abstracts/variables' as *;
 
-  &__grid {
-    @include grid(3);
-  }
+footer {
+  .footer__benefits {
+    background: #504E4A;
+    padding: 40px 0;
 
-  a {
-    color: #ccc;
-    text-decoration: none;
+ background-image: url("data:image/svg+xml,%3Csvg width='200' height='40' viewBox='0 0 200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15 Q50 0 100 15 T200 15' fill='none' stroke='gray' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 40px; // 👈 wider = lower frequency
+
+    h2 {
+      color: white;
+    }
+
+    ul {
+      @include grid(4, 150px);
+      list-style-type: none;
+      margin-top: 20px;
+    }
+
+    li {
+      @include flex(center, center);
+      color: white;
+      font-size: 14px;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 10px;
+      }
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i})::before {
+          background-image: url('/images/benefits#{$i}.png');
+        }
+      }
+    }
+
   }
 }
