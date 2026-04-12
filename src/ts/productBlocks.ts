@@ -24,7 +24,7 @@ export async function loadProducts(containerSelector: string, blockSelector: str
     ).slice(0, limit);
 
     selectedProducts.forEach(product => {
-      container.insertAdjacentElement("beforeend", createProductCard(product));
+      container.insertAdjacentElement("beforeend", createProductCard(product, blockSelector));
     });
 
   } catch (error) {
@@ -32,7 +32,9 @@ export async function loadProducts(containerSelector: string, blockSelector: str
   }
 }
 
-function createProductCard(product: Product): HTMLElement {
+function createProductCard(product: Product, blockSelector: string): HTMLElement {
+  const buttonClass = blockSelector === "selected products" ? "ts__btn--buy" : "ts__btn--view";
+  const buttonText = blockSelector === "selected products" ? "Add to Cart" : "View Product";
   const card = document.createElement("div");
   card.className = "product__card";
 
@@ -40,8 +42,10 @@ function createProductCard(product: Product): HTMLElement {
     <img src="${product.imageUrl}" alt="${product.name}" />
     ${product.salesStatus ? `<span class="badge bold--700">SALE</span>` : ""}
     <h3 class="bold--700">${product.name}</h3>
-    <p class="bold--700">$${product.price}</p>
-    <button class="btn btn--primary">Add to Cart</button>
+    <div class="product__card__bottom">
+      <p class="bold--700">$${product.price}</p>
+      <button class="btn btn--primary ${buttonClass}" data-product-id="${product.id}">${buttonText}</button>
+    </div>
   `;
 
   return card;
