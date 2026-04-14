@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { ViteEjsPlugin } from 'vite-plugin-ejs'
 
 export default defineConfig({
   root: 'src',
@@ -9,5 +10,10 @@ export default defineConfig({
   build: {
     outDir: '../dist',
     emptyOutDir: true
-  }
+  },
+  plugins: [
+    ViteEjsPlugin({
+      title: 'Best Shop'
+    })
+  ]
 })
