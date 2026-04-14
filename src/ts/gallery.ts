@@ -1,7 +1,7 @@
-const track = document.getElementById("track") as HTMLElement;
-const slides = Array.from(track.children) as HTMLElement[];
-const nextBtn = document.getElementById("next") as HTMLButtonElement;
-const prevBtn = document.getElementById("prev") as HTMLButtonElement;
+let track: HTMLElement | null = null;
+let slides: HTMLElement[] = [];
+let nextBtn: HTMLButtonElement | null = null;
+let prevBtn: HTMLButtonElement | null = null;
 
 let currentIndex = 0;
 
@@ -11,12 +11,23 @@ let isDragging = false;
 let moved = false;
 
 function goToSlide(index: number) {
+    if (!track) return;
     currentIndex = index;
     track.style.transition = "transform 0.4s ease";
     track.style.transform = `translateX(-${index * 25}%)`;
 }
 
 export function initGallery() {
+    track = document.getElementById("track");
+    if (!track) return;
+
+    slides = Array.from(track.children) as HTMLElement[];
+    if (slides.length === 0) return;
+
+    nextBtn = document.getElementById("next") as HTMLButtonElement | null;
+    prevBtn = document.getElementById("prev") as HTMLButtonElement | null;
+    if (!nextBtn || !prevBtn) return;
+
     // Buttons
     nextBtn.addEventListener("click", () => {
         goToSlide((currentIndex + 1) % slides.length);
@@ -59,6 +70,7 @@ export function initGallery() {
 
 // --- Swipe / Drag Logic ---
 function onStart(x: number) {
+    if (!track) return;
     startX = x;
     isDragging = true;
     moved = false;
@@ -66,7 +78,7 @@ function onStart(x: number) {
 }
 
 function onMove(x: number) {
-    if (!isDragging) return;
+    if (!isDragging || !track) return;
 
     currentX = x;
     const delta = currentX - startX;
@@ -78,7 +90,7 @@ function onMove(x: number) {
 }
 
 function onEnd() {
-    if (!isDragging) return;
+    if (!isDragging || !track) return;
 
     isDragging = false;
 

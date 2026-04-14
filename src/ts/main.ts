@@ -1,10 +1,11 @@
 import { initGallery } from "./gallery";
 import { loadProducts } from "./productBlocks";
-
-initGallery();
-
+import { setActiveNav } from "./activeNav";
 document.addEventListener("DOMContentLoaded", () => {
-    loadProducts("#selected-products .product__block__grid", "selected products", 4);
-    loadProducts("#new-products .product__block__grid", "new products arrival", 4);
+    const path = setActiveNav();
+    if (path === "/") {
+        loadProducts("#selected-products .product__block__grid", "selected products", 4);
+        loadProducts("#new-products .product__block__grid", "new products arrival", 4);
+        initGallery();
+    }
 });
-
