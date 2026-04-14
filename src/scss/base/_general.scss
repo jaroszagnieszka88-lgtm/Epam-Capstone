@@ -22,3 +22,8 @@ img {
   width: 100%;
   display: block;
 }
+
+input {
+  outline: 3px solid $primary-light;
+  border: none;
+}
