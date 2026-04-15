@@ -5,7 +5,6 @@ export function setActiveNav() {
 
   links.forEach((link) => {
     const href = link.getAttribute("href");
-        console.log(`Comparing link href: ${href} with path: ${path}`);
     if (!href) return;
 
     const normalizedHref = href === "/" ? "/" : href.replace(/\/$/, "");

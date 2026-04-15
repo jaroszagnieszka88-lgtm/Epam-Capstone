@@ -28,15 +28,6 @@ export function initGallery() {
     prevBtn = document.getElementById("prev") as HTMLButtonElement | null;
     if (!nextBtn || !prevBtn) return;
 
-    // Buttons
-    nextBtn.addEventListener("click", () => {
-        goToSlide((currentIndex + 1) % slides.length);
-    });
-
-    prevBtn.addEventListener("click", () => {
-        goToSlide((currentIndex - 1 + slides.length) % slides.length);
-    });
-    // Touch events
     track.addEventListener("touchstart", (e) => {
         onStart(e.touches[0].clientX);
     });
@@ -47,7 +38,6 @@ export function initGallery() {
 
     track.addEventListener("touchend", onEnd);
 
-    // Mouse events
     track.addEventListener("mousedown", (e) => {
         e.preventDefault();
         onStart(e.clientX);
@@ -59,7 +49,6 @@ export function initGallery() {
 
     window.addEventListener("mouseup", onEnd);
 
-    // Prevent click after drag
     track.addEventListener("click", (e) => {
         if (moved) {
             e.preventDefault();

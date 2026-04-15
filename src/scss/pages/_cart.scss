@@ -1,0 +1,117 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.cart {
+    &__hero {
+        height: 200px;
+        background: url("/images/cartHero.png") center/cover no-repeat;
+        @include flex(space-between, center);
+
+        h1 {
+            color: white;
+            font-size: 42px;
+            margin: auto;
+        }
+    }
+
+    &__container {
+        width: 85%;
+        margin: 40px auto;
+    }
+
+    &__table {
+        padding: 16px;
+
+        &--header {
+            @include grid(6);
+
+            div {
+                color: white;
+                text-transform: uppercase;
+                font-size: 14px;
+                margin: auto;
+            }
+
+            background: #5a5652;
+        }
+    }
+
+    &__items {
+        margin-top: 10px;
+    }
+
+    &__row {
+        @include grid(6);
+        align-items: center;
+        padding: 20px 16px;
+        border-bottom: 2px solid $primary;
+
+        div {
+            margin: auto;
+            color: black;
+        }
+
+        .cart_quantity {
+            color: black;
+        }
+
+        div.cart__delete {
+            color: $primary;
+        }
+    }
+
+    &__image img {
+        width: 60px;
+    }
+
+    &__quantity {
+        @include grid(3);
+
+        .qty-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: black;
+            margin-top: 0;
+        }
+    }
+
+    &__delete {
+        cursor: pointer;
+        font-size: 28px;
+    }
+
+    &__bottom {
+        @include flex(space-between, flex-start);
+        margin-top: 40px;
+        gap: 40px;
+    }
+
+    &__actions {
+        @include grid(2);
+    }
+
+    &__summary {
+        background: #5a5652;
+
+        span {
+            color: white;
+        }
+
+        padding: 30px;
+        width: 300px;
+
+        .summary__row {
+            @include flex(space-between, center);
+            padding: 12px 0;
+            border-bottom: 1px solid $primary;
+        }
+        .summary__row[hidden]{
+            display:none;
+        }
+        button{
+            width:50%;
+        }
+    }
+}

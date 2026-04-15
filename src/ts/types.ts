@@ -11,3 +11,5 @@ export type Product = {
   popularity: number;
   blocks: string[];
 };
+
+export type Cart = Record<string, number>;

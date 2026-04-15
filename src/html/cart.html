@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,14 +8,62 @@
     <link rel="stylesheet" href="/scss/main.scss" />
     <script src="/ts/main.ts" type="module"></script>
 </head>
+
 <body>
     <%- include('html/_header.html') %>
-    <main class="container">
-        <section class="page-heading">
-            <h1>Your Cart</h1>
-            <p>Review the items you have added to your cart.</p>
-        </section>
-    </main>
-    <%- include('html/_footer.html') %>
+        <div class="cart__hero">
+            <h1 class="bold--700">My Cart</h1>
+        </div>
+        <main class="container">
+            <section class="cart">
+
+                <div class="cart__container">
+                    <!-- Header -->
+                    <div class="cart__table cart__table--header">
+                        <div class="bold--700">Image</div>
+                        <div class="bold--700">Product Name</div>
+                        <div class="bold--700">Price</div>
+                        <div class="bold--700">Quantity</div>
+                        <div class="bold--700">Total</div>
+                        <div class="bold--700">Delete</div>
+                    </div>
+
+                    <!-- Items -->
+                    <div id="cart-items" class="cart__items">
+                        
+                    </div>
+
+                    <!-- Bottom section -->
+                    <div class="cart__bottom">
+                        <div class="cart__actions">
+                            <button class="btn btn--primary"><a href="/">CONTINUE SHOPPING</a></a>
+                            <button class="btn btn--primary" id="cart-clear">CLEAR SHOPPING CART</button>
+                        </div>
+
+                        <div class="cart__summary">
+                            <div class="summary__row">
+                                <span class="bold--700">Sub Total</span>
+                                <span class="bold--700" id="subtotal">$0</span>
+                            </div>
+                            <div class="summary__row" hidden>
+                                <span class="bold--700">Discount</span>
+                                <span class="bold--700" id="discount">$30</span>
+                            </div>
+                            <div class="summary__row">
+                                <span class="bold--700">Shipping</span>
+                                <span class="bold--700">$30</span>
+                            </div>
+                            <div class="summary__row summary__row--total">
+                                <span class="bold--700">Total</span>
+                                <span class="bold--700" id="total">$0</span>
+                            </div>
+                            <button class="btn btn--primary" id="cart-checkout">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%- include('html/_footer.html') %>
 </body>
+
 </html>
