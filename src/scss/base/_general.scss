@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
 * {
   margin: 0;
@@ -26,4 +27,59 @@ img {
 input {
   outline: 3px solid $primary-light;
   border: none;
+}
+
+.top__hero {
+  @include flex(space-between, center);
+
+  div {
+    margin: auto;
+    text-align: center;
+  }
+
+  h1 {
+    color: white;
+    font-size: 44px;
+  }
+
+  p {
+    color: white;
+    margin-top: 12px;
+    max-width: 700px;
+  }
+
+  &--normal {
+    height: 200px;
+  }
+
+  &--big {
+    height: 320px;
+  }
+}
+
+.icon__info {
+  width: 85%;
+  margin: 40px auto;
+  @include grid(4, 150px);
+  text-align: center;
+
+  &__item {
+    div {
+      @include flex(space-between, center);
+      width: 62px;
+      height: 62px;
+      background-color: $primary;
+      margin: 14px auto;
+
+      img {
+        width: 34px;
+        height: auto;
+        margin: auto;
+      }
+    }
+
+    p:nth-child(2) {
+      margin-bottom: 10px;
+    }
+  }
 }

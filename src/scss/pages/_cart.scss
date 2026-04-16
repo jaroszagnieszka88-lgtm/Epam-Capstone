@@ -3,15 +3,7 @@
 
 .cart {
     &__hero {
-        height: 200px;
         background: url("/images/cartHero.png") center/cover no-repeat;
-        @include flex(space-between, center);
-
-        h1 {
-            color: white;
-            font-size: 42px;
-            margin: auto;
-        }
     }
 
     &__container {

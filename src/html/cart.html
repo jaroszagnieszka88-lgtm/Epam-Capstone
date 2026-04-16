@@ -11,8 +11,10 @@
 
 <body>
     <%- include('html/_header.html') %>
-        <div class="cart__hero">
-            <h1 class="bold--700">My Cart</h1>
+        <div class="top__hero top__hero--normal cart__hero">
+            <div>
+                <h1 class="bold--700">My Cart</h1>
+            </div>
         </div>
         <main class="container">
             <section class="cart">
@@ -30,14 +32,14 @@
 
                     <!-- Items -->
                     <div id="cart-items" class="cart__items">
-                        
+
                     </div>
 
                     <!-- Bottom section -->
                     <div class="cart__bottom">
                         <div class="cart__actions">
                             <button class="btn btn--primary"><a href="/">CONTINUE SHOPPING</a></a>
-                            <button class="btn btn--primary" id="cart-clear">CLEAR SHOPPING CART</button>
+                                <button class="btn btn--primary" id="cart-clear">CLEAR SHOPPING CART</button>
                         </div>
 
                         <div class="cart__summary">
