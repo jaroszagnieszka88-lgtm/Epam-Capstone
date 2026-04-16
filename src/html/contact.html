@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,14 +8,96 @@
     <link rel="stylesheet" href="/scss/main.scss" />
     <script src="/ts/main.ts" type="module"></script>
 </head>
+
 <body>
     <%- include('html/_header.html') %>
-    <main class="container">
-        <section class="page-heading">
-            <h1>Contact Us</h1>
-            <p>Get in touch with our team for support and inquiries.</p>
-        </section>
-    </main>
-    <%- include('html/_footer.html') %>
+
+        <div class="contact__hero">
+            <div>
+                <h1 class="bold--700">Contact Us</h1>
+                <p>Duis vestibulum elit vel neque pharetra vulputate.</p>
+                <p>Duis rutrum non risus in imperdiet. </p>
+            </div>
+
+        </div>
+
+        <main class="container">
+            <section class="contact__info">
+                <div class="contact__info__item">
+                    <div>
+                        <img src="/images/iconLocation.png" alt="Our Location" />
+                    </div>
+
+                    <p class="bold--700">Our Location</p>
+                    <p>1234 NW Bobcat Lane, St. Robert, MO 65584-5678</p>
+                </div>
+
+                <div class="contact__info__item">
+                    <div>
+                        <img src="/images/iconTime.png" alt="Operating Time" />
+                    </div>
+
+                    <p class="bold--700">Operating Time</p>
+                    <p>Monday - Friday: 9am - 6 pm<br />Weekends: 10:30 am - 6pm</p>
+                </div>
+
+                <div class="contact__info__item">
+                    <div>
+                        <img src="/images/iconEmail.png" alt="Our Email" />
+                    </div>
+
+                    <p class="bold--700">Our Email</p>
+                    <p>best@shop.com<br />info@bestshop.com</p>
+                </div>
+
+                <div class="contact__info__item">
+                    <div>
+                        <img src="/images/iconPhone.png" alt="Call Us" />
+                    </div>
+
+                    <p class="bold--700">Call Us</p>
+                    <p>(269)142-8473<br />(700)265-2917</p>
+                </div>
+            </section>
+
+            <section class="contact__container container">
+                <img src="/images/feedback.png" alt="Contact" />
+
+                <div class="contact__form">
+                    <h2 class="bold--700">Your Feedback Is Much Appreciated!</h2>
+                    <p>We will contact you when you complete the following form!</p>
+
+                    <form id="contactForm" novalidate>
+                        <div class="form__row">
+                            <label for="name" class="bold--700">Your Name <span>*</span></label>
+                            <input type="text" id="name" name="name" required autocomplete="off" />
+                        </div>
+
+                        <div class="form__row">
+                            <label for="email" class="bold--700">Your Email Address <span>*</span></label>
+                            <input type="email" id="contactEmail" name="email" required autocomplete="off" />
+                            <div id="emailError" class="form__message error">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="form__row">
+                            <label for="topic" class="bold--700">Topic <span>*</span></label>
+                            <input type="text" id="topic" name="topic" required autocomplete="off" />
+                        </div>
+
+                        <div class="form__row">
+                            <label for="message" class="bold--700">Your Message <span>*</span></label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary">SEND</button>
+
+                        <div id="contactMessage" class="form__message" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <%- include('html/_footer.html') %>
 </body>
+
 </html>

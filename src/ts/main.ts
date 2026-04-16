@@ -3,6 +3,7 @@ import { loadProducts } from "./productBlocks";
 import { setActiveNav } from "./activeNav";
 import { loginModal } from "./loginModal";
 import {updateCartCounter, loadCartProducts} from "./cart"
+import { contactForm } from "./contact";
 
 document.addEventListener("DOMContentLoaded", () => {
     loginModal();
@@ -15,5 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else if(path == "/cart"){
         loadCartProducts(".cart__items");
+    }
+    else if(path == "/contact"){
+        contactForm();
     }
 });

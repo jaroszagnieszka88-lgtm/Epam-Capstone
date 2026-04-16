@@ -26,25 +26,28 @@
         @include grid(1, auto);
         height: 100%;
 
-        .form-row--flex{
+        .form-row--flex {
             @include flex(space-between, center);
             text-align: center;
-            label{
-                margin:0;
+
+            label {
+                margin: 0;
             }
-            a{
+
+            a {
                 color: $primary;
                 text-decoration: none;
             }
-            #rememberMe{
-                margin-right:20px;
-                width:auto;
+
+            #rememberMe {
+                margin-right: 20px;
+                width: auto;
             }
         }
-        input
-        {
-            padding:8px;
-            width:100%;
+
+        input {
+            padding: 8px;
+            width: 100%;
         }
 
         label {
@@ -67,13 +70,13 @@
         flex: 1;
     }
 
-    #togglePassword{
+    #togglePassword {
         cursor: pointer;
         position: absolute;
         right: 10px;
         top: 8px;
-        width:18px;
-        height:14px;
+        width: 18px;
+        height: 14px;
     }
 }
 

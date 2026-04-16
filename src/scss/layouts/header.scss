@@ -22,15 +22,23 @@
   &__icons {
     @include flex(center, center);
     gap: 15px;
-    #cart-icon{
+
+    #userTrigger {
+      width: 30px;
+      height: 33px;
+      cursor: pointer;
+    }
+
+    #cart-icon {
       position: relative;
     }
-    #cart-counter{
-      position:absolute;
-      top:-16px;
-      right:-14px;
-      width:25px;
-      height:25px;
+
+    #cart-counter {
+      position: absolute;
+      top: -16px;
+      right: -14px;
+      width: 25px;
+      height: 25px;
       padding-top: 2px;
       text-align: center;
       border: 3px solid $primary;
