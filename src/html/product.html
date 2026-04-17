@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Best Shop</title>
+    <link rel="stylesheet" href="/scss/main.scss" />
+    <script src="/ts/main.ts" type="module"></script>
+</head>
+
+<body>
+    <%- include('html/_header.html') %>
+
+        <main>
+            <section class="container container--centered tabs">
+                <div class="tabs__headers">
+                    <div class="tabs__headers__item">
+                        <h2 class="bold--700">
+                            DETAILS
+                        </h2>
+                    </div>
+                    <div class="tabs__headers__item">
+                        <h2 class="bold--700 item--active">
+                            REVIEWS
+                        </h2>
+                    </div>
+                    <div class="tabs__headers__item">
+                        <h2 class="bold--700">
+                            SHIPPING POLICY
+                        </h2>
+                    </div>
+                </div>
+                <div class="tabs__items">
+                    <div class="tabs__items--wrap">
+                        <pre>
+                        Vestibulum commodo sapien non elit porttitor, vitae volutpat nibh mollis. Nulla porta risus id neque tempor, in efficitur justo imperdiet. Etiam a ex at Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis hic a nisi modi quod autem eligendi impedit. Iure saepe in ut aliquam, tenetur, ad aliquid architecto sequi laboriosam, optio perferendis.
+
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam aliquam similique veniam! Id non debitis ab. Ipsa temporibus dolores facilis debitis accusantium molestias voluptatem quae. Debitis dolore eius eos. Provident?
+
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sint natus necessitatibus cum. Minima sequi quis, explicabo eius veniam doloribus dignissimos optio illo, saepe ut obcaecati ab, beatae autem vero.
+                        </pre>
+                    </div>
+                    <div>
+                        <div class="grid--2">
+                            <div>
+                                <h3 class="bold--700">1 review for Global Explorer Max Comfort Suitcase Pro</h3>
+
+                                <div class="review">
+                                    <div class="grid--2">
+                                        <div class="review__person">
+                                            <img src="/images/reviewCustomer.png" class="review__avatar" alt="" />
+                                            <p><span class="bold--900">Ella Harper </span> <span> / June 11, 2025</span>
+                                            </p>
+                                        </div>
+
+                                        <span class="review__stars">★ ★ ★ ★ ☆</span></p>
+                                    </div>
+
+                                    <div class="review__body">
+                                        <p>Proin iaculis nibh vitae lectus mollis bibendum. Quisque varius eget urna sit
+                                            amet luctus. Suspendisse potenti curabitur ac placerat est, sit amet sodales
+                                            risus.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="basic__form">
+                                <h2 class="bold--700">Add Review</h2>
+                                <p>Your email address won't be shared with anybody. Required fields have the symbol
+                                    <span class="basic__form__star">*</span>
+                                </p>
+
+                                <form id="reviewForm" novalidate>
+                                    <div class="form__row">
+                                        <h3 class="star__title bold--700">RATE PRODUCT</h3>
+                                        <div class="star__wrap">
+                                            <input class="star" type="radio" id="st-5" value="5" name="star-radio"
+                                                autocomplete="off" />
+                                            <label class="star__label" for="st-5">★</label>
+                                            <input class="star" type="radio" id="st-4" value="4" name="star-radio"
+                                                autocomplete="off" />
+                                            <label class="star__label" for="st-4">★</label>
+                                            <input class="star" type="radio" id="st-3" value="3" name="star-radio"
+                                                autocomplete="off" />
+                                            <label class="star__label" for="st-3">★</label>
+                                            <input class="star" type="radio" id="st-2" value="2" name="star-radio"
+                                                autocomplete="off" />
+                                            <label class="star__label" for="st-2">★</label>
+                                            <input class="star" type="radio" id="st-1" value="1" name="star-radio"
+                                                autocomplete="off" />
+                                            <label class="star__label" for="st-1">★</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form__row fake__placeholder">
+                                        <label for="reviewText">Your Review<span>*</span></label>
+                                        <textarea id="reviewText" name="review" required></textarea>
+                                    </div>
+
+                                    <div class="form__row grid--2">
+                                        <div class="fake__placeholder">
+                                            <label for="reviewName">Your Name<span>*</span></label>
+                                            <input type="text" id="reviewName" name="name" required
+                                                autocomplete="off" />
+                                        </div>
+
+                                        <div class="fake__placeholder">
+                                            <label for="reviewEmail">Your Email<span>*</span></label>
+                                            <input type="email" id="reviewEmail" name="email" required
+                                                autocomplete="off" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form__row form__row--flex">
+                                        <input type="checkbox" id="saveName" /> <label for="saveName">Save my name,
+                                            email, and website in this
+                                            browserfor when I leave another comment.</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn--primary">SUBMIT</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sint natus necessitatibus cum.
+                        Minima sequi quis, explicabo eius veniam doloribus dignissimos optio illo, saepe ut obcaecati
+                        ab, beatae autem vero. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sint
+                        natus necessitatibus cum.
+                        Minima sequi quis, explicabo eius veniam doloribus dignissimos optio illo, saepe ut obcaecati
+                        ab, beatae autem vero. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, aperiam
+                        ex maxime nobis a non obcaecati fuga atque autem asperiores explicabo fugit, sequi delectus?
+                        Dolorum, in eius. Voluptate, officiis magni.
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="container container--centered product__block" id="also-like-products">
+                <div class="product__block__title">
+                    <h1>You may also like</h1>
+                </div>
+                <div class="product__block__grid">
+
+                </div>
+            </section>
+        </main>
+
+        <%- include('html/_footer.html') %>
+</body>
+
+</html>

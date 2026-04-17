@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.form__row:has(> .star__wrap) {
+    @include flex(start, center);
+}
+
+.star__wrap {
+    @include flex(start, start);
+    flex-direction: row-reverse;
+    position: relative;
+
+    .star {
+        position: absolute;
+        left: -9999px;
+
+        &__label {
+            cursor: pointer;
+            font-size: 28px;
+            color: #ccc;
+        }
+    }
+
+    .star__label:hover,
+    .star__label:hover~.star__label {
+        color: #f5b301;
+    }
+
+    .star:checked~.star__label {
+        color: #f5b301;
+    }
+}
+
+.star__title {
+    color: black;
+    margin-right: 20px;
+}

@@ -1,7 +1,7 @@
 import { Product } from "./types";
 import {addToCart} from "./cart"
 
-export async function loadProducts(containerSelector: string, blockSelector: string, limit: number): Promise<void> {
+export async function loadProducts(containerSelector: string, blockSelector: string, limit: number, random: boolean = false): Promise<void> {
   try {
     const response = await fetch("../assets/data.json");
 
@@ -18,11 +18,21 @@ export async function loadProducts(containerSelector: string, blockSelector: str
       return;
     }
 
-    const selectedProducts = products.filter(product =>
-      product.blocks.some(
-        block => block.toLowerCase() === blockSelector
-      )
-    ).slice(0, limit);
+    const filteredProducts = products.filter(product =>
+      blockSelector === ""
+      || product.blocks.some(
+          block => block.toLowerCase() === blockSelector
+        )
+    );
+
+    if (random) {
+      for (let i = filteredProducts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [filteredProducts[i], filteredProducts[j]] = [filteredProducts[j], filteredProducts[i]];
+      }
+    }
+
+    const selectedProducts = filteredProducts.slice(0, limit);
 
     selectedProducts.forEach(product => {
       container.insertAdjacentElement("beforeend", createProductCard(product, blockSelector));

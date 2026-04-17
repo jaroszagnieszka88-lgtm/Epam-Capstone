@@ -1,4 +1,5 @@
 @use 'base/general';
+@use 'base/forms';
 @use 'components/buttons';
 @use 'components/product-card';
 @use 'layouts/footer';
@@ -9,6 +10,8 @@
 @use 'components/banner';
 @use 'components/testimonial';
 @use 'components/login-modal';
+@use 'components/rating';
 @use 'pages/cart';
 @use 'pages/contact';
 @use 'pages/about';
+@use 'pages/product-details';

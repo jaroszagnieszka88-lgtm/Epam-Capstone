@@ -24,10 +24,6 @@ img {
   display: block;
 }
 
-input {
-  outline: 3px solid $primary-light;
-  border: none;
-}
 
 .top__hero {
   @include flex(space-between, center);
@@ -82,4 +78,8 @@ input {
       margin-bottom: 10px;
     }
   }
+}
+
+.grid--2 {
+  @include grid(2);
 }

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import { ViteEjsPlugin } from 'vite-plugin-ejs'
 
-const htmlRoutes = ['about', 'catalog', 'cart', 'contact']
+const htmlRoutes = ['about', 'catalog', 'cart', 'contact', 'product']
 
 export default defineConfig({
   root: 'src',
@@ -10,7 +10,7 @@ export default defineConfig({
     {
       name: 'html-route-rewrite',
       configureServer(server) {
-        server.middlewares.use((req, res, next) => {
+        server.middlewares.use((req, _, next) => {
           const request = req as { url?: string }
           const url = request.url ?? ''
           const pathname = url.split('?')[0]
@@ -40,6 +40,7 @@ export default defineConfig({
         about: 'html/about.html',
         catalog: 'html/catalog.html',
         cart: 'html/cart.html',
+        product: 'html/product.html',
         contact: 'html/contact.html'
       }
     }

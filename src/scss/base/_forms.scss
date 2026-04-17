@@ -1,0 +1,114 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+input:not([type="checkbox"]) {
+    outline: 3px solid $primary-light;
+    border: none;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 16px;
+    height: 16px;
+    outline: 2px solid #aaa;
+    margin: 0 8px;
+    display: inline-block;
+    position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: $primary;
+    font-size: 15px;
+    font-weight: 900;
+    position: absolute;
+    top: -3px;
+    left: 2px;
+}
+
+.basic__form {
+    h2 {
+        font-size: 20px;
+        color: black;
+    }
+
+    p {
+        margin: 30px 0 40px 0;
+    }
+
+    &__star {
+        color: $primary;
+    }
+
+    .form__row {
+        margin: 30px 0;
+
+        &--flex {
+            @include flex(start, start);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: black;
+
+            span {
+                color: $primary;
+            }
+        }
+
+        input:not([type="checkbox"]),
+        textarea {
+            padding: 8px;
+            width: 95%;
+            outline: 3px solid $primary-light;
+        }
+
+        textarea {
+            min-height: 70px;
+            resize: none;
+            border: none;
+        }
+
+        .input__error {
+            color: $primary;
+            font-size: 13px;
+            margin-top: 6px;
+            display: none;
+        }
+    }
+
+    .form__message {
+        display: none;
+        padding: 0;
+        margin: 10px 0 18px;
+        border-radius: 4px;
+
+        &.success {
+            color: green;
+        }
+
+        &.error {
+            color: red;
+        }
+    }
+
+    button {
+        width: 120px;
+    }
+
+    .fake__placeholder {
+        position: relative;
+
+        label {
+            position: absolute;
+            left: 10px;
+            top: 18px;
+            transform: translateY(-50%);
+            color: #999;
+            pointer-events: none;
+        }
+    }
+}

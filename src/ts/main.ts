@@ -4,6 +4,7 @@ import { setActiveNav } from "./activeNav";
 import { loginModal } from "./loginModal";
 import {updateCartCounter, loadCartProducts} from "./cart"
 import { contactForm } from "./contact";
+import { initProductTabs } from "./product";
 
 document.addEventListener("DOMContentLoaded", () => {
     loginModal();
@@ -14,10 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
         loadProducts("#new-products .product__block__grid", "new products arrival", 4);
         initGallery();
     }
-    else if(path == "/cart"){
+    else if(path === "/cart"){
         loadCartProducts(".cart__items");
     }
-    else if(path == "/contact"){
+    else if(path === "/contact"){
         contactForm();
+    }
+    else if(path === "/product")
+    {
+        loadProducts("#also-like-products .product__block__grid", "", 4, true);
+        initProductTabs();
+
     }
 });

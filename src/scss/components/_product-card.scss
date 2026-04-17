@@ -4,10 +4,23 @@
 .product__block {
   margin-top: 150px;
   margin-bottom: 150px;
+
   &__grid {
     @include grid(4);
     margin: 50px 2% 0 2%;
     align-items: center;
+  }
+
+  &__title {
+    @include flex(center, center);
+
+    margin: auto;
+
+    h1 {
+      margin-bottom: 50px;
+      border-bottom: 2px solid $primary;
+      padding-bottom: 10px;
+    }
   }
 }
 
@@ -38,8 +51,9 @@
   p {
     margin-bottom: 20px;
   }
-  &__bottom{
-    position:absolute;
+
+  &__bottom {
+    position: absolute;
     bottom: 20px;
     left: 0;
     width: 100%;
