@@ -44,8 +44,10 @@ export async function loadProducts(containerSelector: string, blockSelector: str
 }
 
 function createProductCard(product: Product, blockSelector: string): HTMLElement {
-  const buttonClass = blockSelector === "selected products" ? "ts__btn--buy" : "ts__btn--view";
-  const buttonText = blockSelector === "selected products" ? "Add to Cart" : "View Product";
+  const redirect = blockSelector == "new products arrival";
+  const buttonText = redirect ? "View Product" : "Add to Cart";
+  const button = redirect ? `<a href="/product?id=${product.id}" class="btn btn--primary width--full">${buttonText}</a>` 
+    : `<button class="btn btn--primary ts__btn--buy" data-product-id="${product.id}">${buttonText}</button>`;
   const card = document.createElement("div");
   card.className = "product__card";
 
@@ -55,7 +57,7 @@ function createProductCard(product: Product, blockSelector: string): HTMLElement
     <h3 class="bold--700">${product.name}</h3>
     <div class="product__card__bottom">
       <p class="bold--700">$${product.price}</p>
-      <button class="btn btn--primary ${buttonClass}" data-product-id="${product.id}" ${event}>${buttonText}</button>
+      ${button}
     </div>
   `;
 

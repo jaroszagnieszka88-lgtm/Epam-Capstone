@@ -1,3 +1,26 @@
+import { addToCart as cartAddToCart } from './cart';
+import { Product } from './types';
+
+export function initProductPreview(): void {
+	const urlParams = new URLSearchParams(window.location.search);
+	const id = urlParams.get('id');
+
+	const container = document.querySelector<HTMLElement>(".product__preview__small");
+	const mainImg = document.querySelector<HTMLImageElement>("#product-main");
+
+	if (!container || !mainImg || !id) return;
+
+	const smallImages = container.querySelectorAll<HTMLImageElement>("img");
+	if (!smallImages) return;
+	smallImages[0].src = mainImg.src = `/images/${id}.png`;
+
+	container.addEventListener("click", (event) => {
+		const target = event.target as HTMLImageElement;
+		if (!target) return;
+		mainImg.src = target.src;
+	});
+}
+
 export function initProductTabs(): void {
 	const tabsSections = Array.from(document.querySelectorAll<HTMLElement>('.tabs'));
 	if (!tabsSections.length) return;
@@ -35,5 +58,118 @@ export function initProductTabs(): void {
 			});
 		});
 	});
+}
+
+export async function initProductForm(): Promise<void> {
+	const minusBtn = document.getElementById('quantity-minus') as HTMLButtonElement | null;
+	const plusBtn = document.getElementById('quantity-plus') as HTMLButtonElement | null;
+	const qtySpan = document.getElementById('product-quantity') as HTMLElement | null;
+	const addBtn = document.getElementById('add-to-cart') as HTMLButtonElement | null;
+	const sizeSelect = document.getElementById('size-select') as HTMLSelectElement | null;
+	const colorSelect = document.getElementById('color-select') as HTMLSelectElement | null;
+	const categorySelect = document.getElementById('category-select') as HTMLSelectElement | null;
+	const nameEl = document.getElementById('product-name') as HTMLSelectElement | null;
+	const priceEl = document.getElementById('product-price') as HTMLSelectElement | null;
+	const ratingEl = document.getElementById('product-rating-stars') as HTMLSelectElement | null;
+
+	if (!qtySpan || !addBtn) return;
+
+	const urlParams = new URLSearchParams(window.location.search);
+	const id = urlParams.get('id');
+
+	try {
+		const response = await fetch('../assets/data.json');
+		if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+		const json = await response.json();
+		const products = Array.isArray(json.data) ? json.data : [];
+		const product = id ? products.find((p: Product) => p.id === id) as Product : null;
+
+		if (!product) return;
+		const categories = product.category.split(",");
+		const allSizes = product.size.split(",");
+		const allColors = product.color.split(",");
+
+		if(nameEl){
+			nameEl.textContent = product.name;
+		}
+		if(ratingEl){
+			const goldenStars = "★".repeat(Math.round(product.rating));
+			const normalStars = "★".repeat(5-goldenStars.length);
+			ratingEl.innerHTML = `<span class="golden">${goldenStars}</span>${normalStars}`;
+		}
+		if(priceEl){
+			priceEl.textContent=`$${product.price}`;
+		}
+		if (categorySelect) {
+			setPlaceholder(categorySelect, 'Choose category');
+			categories.forEach(c => addOption(c, categorySelect));
+		}
+
+		if (sizeSelect) {
+			setPlaceholder(sizeSelect, 'Choose size');
+			const productSizes: string[] = product && product.size ? product.size.toString().split(',').map((s: string) => s.trim()).filter(Boolean) : [];
+			const sizesToUse = productSizes.length ? productSizes : allSizes;
+			sizesToUse.forEach(s => addOption(s, sizeSelect));
+		}
+
+		if (colorSelect) {
+			setPlaceholder(colorSelect, 'Choose color');
+			const productColors: string[] = product && product.color ? product.color.toString().split(',').map((s: string) => s.trim()).filter(Boolean) : [];
+			const colorsToUse = productColors.length ? productColors : allColors;
+			colorsToUse.forEach(c => addOption(c, colorSelect));
+		}
+	} catch (err) {
+		console.error('Failed to load product options:', err);
+	}
+
+	let quantity = parseInt(qtySpan.textContent || '1', 10);
+	if (isNaN(quantity) || quantity < 1) {
+		quantity = 1;
+		qtySpan.textContent = '1';
+	}
+
+	minusBtn?.addEventListener('click', () => {
+		if (quantity <= 1) return;
+		quantity -= 1;
+		qtySpan.textContent = String(quantity);
+	});
+
+	plusBtn?.addEventListener('click', () => {
+		quantity += 1;
+		qtySpan.textContent = String(quantity);
+	});
+
+	addBtn.addEventListener('click', () => {
+		if (!id || !sizeSelect || !colorSelect || !categorySelect
+			|| !sizeSelect.value || !colorSelect.value || !categorySelect.value) {
+			return;
+		}
+
+		cartAddToCart(id, quantity);
+
+		sizeSelect.selectedIndex = 0;
+		colorSelect.selectedIndex = 0;
+		categorySelect.selectedIndex = 0;
+
+		quantity = 1;
+		qtySpan.textContent = '1';
+	});
+}
+
+function addOption(c: string, container: HTMLSelectElement) {
+	const o = document.createElement('option');
+	o.value = c;
+	o.textContent = c;
+	container.appendChild(o);
+}
+
+function setPlaceholder(sel: HTMLSelectElement, text: string) {
+	sel.innerHTML = '';
+	const ph = document.createElement('option');
+	ph.value = '';
+	ph.disabled = true;
+	ph.selected = true;
+	ph.textContent = text;
+	sel.appendChild(ph);
 }
 

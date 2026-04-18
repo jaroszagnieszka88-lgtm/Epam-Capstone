@@ -24,6 +24,10 @@ img {
   display: block;
 }
 
+.width--full {
+  display: block;
+  width: 100%;
+}
 
 .top__hero {
   @include flex(space-between, center);

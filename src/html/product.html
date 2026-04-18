@@ -13,15 +13,91 @@
     <%- include('html/_header.html') %>
 
         <main>
+
+            <section class="container container--centered product grid--2">
+                <div class="product__preview">
+                    <img id="product-main" alt="">
+                    <div class="product__preview__small">
+                        <img alt="">
+                        <img alt="" src="/images/suitcaseSmall2.png">
+                        <img alt="" src="/images/suitcaseSmall3.png">
+                        <img alt="" src="/images/suitcaseSmall4.png">
+                    </div>
+                </div>
+                <div class="product__right">
+                    <h1 id="product-name">Lorem, ipsum dolor sit amet</h1>
+                    <div class="product__rating">
+                        <div id="product-rating-stars"><span class="golden">★★★★</span>★</div>
+                        <span id="product-reviews-amount">(10 clients review)</span>
+                    </div>
+                    <p id="product-price" class="bold--900">$250</p>
+                    <div id="product-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                        adipisci quibusdam ab minus, quidem earum illo quo iusto dolorem atque? Vel, eligendi unde
+                        mollitia fugiat est ipsa omnis magnam aspernatur. Lorem ipsum dolor, sit amet consectetur
+                        adipisicing elit. Laboriosam quos blanditiis tempora dolore incidunt doloremque esse tenetur
+                        magnam ut? Veniam laboriosam magnam similique aperiam neque? Voluptatibus nemo quas aliquam
+                        nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sed aliquam ipsa
+                        fuga
+                        quisquam? Aliquid consectetur quia dignissimos velit laborum adipisci ipsa, repellat, fuga,
+                        impedit praesentium quo unde quas explicabo.
+                    </div>
+                    <div class="basic__form" id="product-form">
+                        <div class="form__row">
+                            <label for="size-select" class="bold--700">Size</label>
+                            <div class="select-wrapper">
+                                <select name="size" id="size-select">
+                                    <option value="" disabled selected>Choose size</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <label for="color-select" class="bold--700">Color</label>
+                            <div class="select-wrapper">
+                                <select name="color" id="color-select">
+                                    <option value="" disabled selected>Choose color</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <label for="category-select" class="bold--700">Category</label>
+                            <div class="select-wrapper">
+                                <select name="category" id="category-select">
+                                    <option value="" disabled selected>Choose category</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form__row product__cart__controls">
+                            <div class="quantity__group">
+                                <button type="button" id="quantity-minus" class="bold--900">-</button>
+                                <span id="product-quantity" class="bold--900">1</span>
+                                <button type="button" id="quantity-plus" class="bold--900">+</button>
+                            </div>
+
+                            <button type="button" id="add-to-cart" class="btn btn--primary"> Add To Cart</button>
+                        </div>
+                    </div>
+                    <div id="product-payment">
+                        <span class="bold--900">Payment:</span>
+                        <img src="/images/payment1.png" alt="" />
+                        <img src="/images/payment2.png" alt="" />
+                        <img src="/images/payment3.png" alt="" />
+                        <img src="/images/payment4.png" alt="" />
+
+                    </div>
+                </div>
+
+            </section>
             <section class="container container--centered tabs">
                 <div class="tabs__headers">
                     <div class="tabs__headers__item">
-                        <h2 class="bold--700">
+                        <h2 class="bold--700 item--active">
                             DETAILS
                         </h2>
                     </div>
                     <div class="tabs__headers__item">
-                        <h2 class="bold--700 item--active">
+                        <h2 class="bold--700">
                             REVIEWS
                         </h2>
                     </div>
@@ -33,13 +109,11 @@
                 </div>
                 <div class="tabs__items">
                     <div class="tabs__items--wrap">
-                        <pre>
                         Vestibulum commodo sapien non elit porttitor, vitae volutpat nibh mollis. Nulla porta risus id neque tempor, in efficitur justo imperdiet. Etiam a ex at Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis hic a nisi modi quod autem eligendi impedit. Iure saepe in ut aliquam, tenetur, ad aliquid architecto sequi laboriosam, optio perferendis.
 
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam aliquam similique veniam! Id non debitis ab. Ipsa temporibus dolores facilis debitis accusantium molestias voluptatem quae. Debitis dolore eius eos. Provident?
 
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sint natus necessitatibus cum. Minima sequi quis, explicabo eius veniam doloribus dignissimos optio illo, saepe ut obcaecati ab, beatae autem vero.
-                        </pre>
                     </div>
                     <div>
                         <div class="grid--2">

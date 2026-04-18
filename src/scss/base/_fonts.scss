@@ -1,9 +1,13 @@
+@use '../abstracts/variables' as *;
 .bold--700 {
     font-weight: 700;
 }
 
 .bold--900 {
     font-weight: 900;
+}
+.golden{
+    color:$golden;
 }
 
 h1 {

@@ -4,7 +4,7 @@ import { setActiveNav } from "./activeNav";
 import { loginModal } from "./loginModal";
 import {updateCartCounter, loadCartProducts} from "./cart"
 import { contactForm } from "./contact";
-import { initProductTabs } from "./product";
+import { initProductPreview, initProductTabs, initProductForm } from "./product";
 
 document.addEventListener("DOMContentLoaded", () => {
     loginModal();
@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     else if(path === "/product")
     {
         loadProducts("#also-like-products .product__block__grid", "", 4, true);
+        initProductPreview();
         initProductTabs();
+        initProductForm();
 
     }
 });

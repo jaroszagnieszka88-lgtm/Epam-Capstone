@@ -23,11 +23,11 @@
 
     .star__label:hover,
     .star__label:hover~.star__label {
-        color: #f5b301;
+        color: $golden;
     }
 
     .star:checked~.star__label {
-        color: #f5b301;
+        color: $golden;
     }
 }
 
