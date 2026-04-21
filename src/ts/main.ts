@@ -5,14 +5,19 @@ import { loginModal } from "./loginModal";
 import {updateCartCounter, loadCartProducts} from "./cart"
 import { contactForm } from "./contact";
 import { initProductPreview, initProductTabs, initProductForm } from "./product";
+import { LoadProductOptions } from "./types";
 
 document.addEventListener("DOMContentLoaded", () => {
     loginModal();
     updateCartCounter();
     const path = setActiveNav();
     if (path === "/") {
-        loadProducts("#selected-products .product__block__grid", "selected products", 4);
-        loadProducts("#new-products .product__block__grid", "new products arrival", 4);
+        loadProducts(
+            {containerSelector: "#selected-products .product__block__grid", blockSelector: "selected products", limit: 4} as LoadProductOptions
+        );
+        loadProducts(
+            {containerSelector:"#new-products .product__block__grid", blockSelector: "new products arrival", limit:4} as LoadProductOptions
+        );
         initGallery();
     }
     else if(path === "/cart"){
@@ -23,7 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else if(path === "/product")
     {
-        loadProducts("#also-like-products .product__block__grid", "", 4, true);
+        loadProducts(
+            {containerSelector: "#also-like-products .product__block__grid", blockSelector: "", limit: 4, random: true} as LoadProductOptions
+        );
         initProductPreview();
         initProductTabs();
         initProductForm();

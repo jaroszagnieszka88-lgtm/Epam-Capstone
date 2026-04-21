@@ -81,14 +81,28 @@ input[type="checkbox"]:checked::after {
             position: relative;
         }
 
-        .select-wrapper {
+        .select__wrapper,
+        .search__wrapper {
             position: relative;
         }
 
-        /* custom arrow */
-        .select-wrapper::after {
+        .select__wrapper::after {
             content: "v";
             font-size: 14px;
+            position: absolute;
+            top: 50%;
+            right: 7%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .search__wrapper::after {
+            content: "";
+            background-image: url("/images/iconSearch.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 25px;
+            height: 25px;
             position: absolute;
             top: 50%;
             right: 7%;

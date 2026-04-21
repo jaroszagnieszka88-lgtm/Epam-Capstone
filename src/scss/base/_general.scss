@@ -10,6 +10,10 @@
   color: $text;
 }
 
+*[hidden] {
+  display: none !important;
+}
+
 .container {
   width: 85%;
   margin: auto;

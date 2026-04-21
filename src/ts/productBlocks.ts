@@ -1,7 +1,7 @@
-import { Product } from "./types";
+import { LoadProductOptions, Product } from "./types";
 import {addToCart} from "./cart"
 
-export async function loadProducts(containerSelector: string, blockSelector: string, limit: number, random: boolean = false): Promise<void> {
+export async function loadProducts(options: LoadProductOptions): Promise<void> {
   try {
     const response = await fetch("../assets/data.json");
 
@@ -11,7 +11,7 @@ export async function loadProducts(containerSelector: string, blockSelector: str
 
     const json = await response.json();
     const products: Product[] = json.data;
-    const container = document.querySelector<HTMLDivElement>(containerSelector);
+    const container = document.querySelector<HTMLDivElement>(options.containerSelector);
 
     if (!container) {
       console.error("Container not found");
@@ -19,23 +19,23 @@ export async function loadProducts(containerSelector: string, blockSelector: str
     }
 
     const filteredProducts = products.filter(product =>
-      blockSelector === ""
+      options.blockSelector === ""
       || product.blocks.some(
-          block => block.toLowerCase() === blockSelector
+          block => block.toLowerCase() === options.blockSelector
         )
     );
 
-    if (random) {
+    if (options.random) {
       for (let i = filteredProducts.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [filteredProducts[i], filteredProducts[j]] = [filteredProducts[j], filteredProducts[i]];
       }
     }
 
-    const selectedProducts = filteredProducts.slice(0, limit);
-
+    const selectedProducts = filteredProducts.slice(options.skip, options.limit);
+    container.innerHTML="";
     selectedProducts.forEach(product => {
-      container.insertAdjacentElement("beforeend", createProductCard(product, blockSelector));
+      container.insertAdjacentElement("beforeend", createProductCard(product, options.blockSelector));
     });
     attachCardListeners(container);
   } catch (error) {

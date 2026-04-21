@@ -1,0 +1,35 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.catalog__settings {
+    @include grid(2);
+    margin: 30px 0;
+
+    #pagination-summary {
+        margin-right: 50%;
+    }
+
+    .settings__form {
+        @include flex(end, start);
+
+        .form__row {
+            margin: 0 5%;
+        }
+    }
+}
+
+#filter {
+    cursor: pointer;
+    width: 31px;
+    height: 31px;
+    padding: 6px;
+    border: 2px solid #aaa;
+}
+
+#search {
+    outline: 2px solid #aaa;
+}
+
+#sorting {
+    min-width: 150px;
+}

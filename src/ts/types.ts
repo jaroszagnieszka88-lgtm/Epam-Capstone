@@ -12,4 +12,12 @@ export type Product = {
   blocks: string[];
 };
 
+export type LoadProductOptions = {
+  containerSelector: string;
+  blockSelector: string;
+  skip: number;
+  limit: number;
+  random: boolean;
+}
+
 export type Cart = Record<string, number>;

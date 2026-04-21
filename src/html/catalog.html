@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,14 +8,35 @@
     <link rel="stylesheet" href="/scss/main.scss" />
     <script src="/ts/main.ts" type="module"></script>
 </head>
+
 <body>
     <%- include('html/_header.html') %>
-    <main class="container">
-        <section class="page-heading">
-            <h1>Catalog</h1>
-            <p>Explore our curated product collection.</p>
-        </section>
-    </main>
-    <%- include('html/_footer.html') %>
+        <main class="container">
+            <section class="catalog__settings">
+                <p id="pagination-summary">Showing 1-12 Of 15 Results</p>
+                <div class="basic__form settings__form">
+                    <div class="form__row">
+                        <img id="filter" src="/images/filterIcon.png" alt="">
+                    </div>
+                    <div class="form__row">
+                        <label for="sorting" hidden>Sorting</label>
+                        <div class="select__wrapper">
+                            <select name="sorting" id="sorting">
+                                <option value="default" selected>Default Sorting</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <div class="search__wrapper fake__placeholder">
+                            <label for="search" hidden>Search Models</label>
+                            <input type="text" id="search" name="search" autocomplete="off"
+                                placeholder="Search Models" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%- include('html/_footer.html') %>
 </body>
+
 </html>
