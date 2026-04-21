@@ -57,6 +57,16 @@ export function initProductTabs(): void {
 				});
 			});
 		});
+		const reviewForm = document.getElementById("reviewForm") as HTMLFormElement;
+		if(reviewForm){
+			reviewForm.addEventListener("submit", e =>{
+				e.preventDefault();
+				if(reviewForm.checkValidity())
+					alert("valid");
+				else
+					alert("form not valid");
+			});
+		}
 	});
 }
 
@@ -171,5 +181,25 @@ function setPlaceholder(sel: HTMLSelectElement, text: string) {
 	ph.selected = true;
 	ph.textContent = text;
 	sel.appendChild(ph);
+}
+
+export function initFakePlaceholders(): void {
+	const containers = Array.from(document.querySelectorAll<HTMLElement>('.fake__placeholder'));
+	if (!containers.length) return;
+
+	containers.forEach(container => {
+		const field = container.querySelector<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('input:not([type="checkbox"]), textarea, select');
+		if (!field) return;
+
+		const update = () => {
+			const val = (field as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement).value;
+			if (typeof val === 'string' && val.trim() !== '') container.classList.add('has-value');
+			else container.classList.remove('has-value');
+		};
+
+		update();
+		field.addEventListener('input', update);
+		field.addEventListener('change', update);
+	});
 }
 

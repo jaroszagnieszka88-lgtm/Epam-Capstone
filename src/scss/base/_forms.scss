@@ -148,5 +148,10 @@ input[type="checkbox"]:checked::after {
             color: #999;
             pointer-events: none;
         }
+            &.has-value {
+                label {
+                    display: none;
+                }
+            }
     }
 }

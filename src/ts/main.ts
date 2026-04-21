@@ -4,7 +4,7 @@ import { setActiveNav } from "./activeNav";
 import { loginModal } from "./loginModal";
 import {updateCartCounter, loadCartProducts} from "./cart"
 import { contactForm } from "./contact";
-import { initProductPreview, initProductTabs, initProductForm } from "./product";
+import { initProductPreview, initProductTabs, initProductForm, initFakePlaceholders } from "./product";
 import { LoadProductOptions } from "./types";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         initProductPreview();
         initProductTabs();
         initProductForm();
+        initFakePlaceholders();
 
     }
 });
