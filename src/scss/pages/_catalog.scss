@@ -16,20 +16,67 @@
             margin: 0 5%;
         }
     }
+
+    #filter {
+        cursor: pointer;
+        width: 31px;
+        height: 31px;
+        padding: 6px;
+        border: 2px solid #aaa;
+    }
+
+    #search {
+        outline: 2px solid #aaa;
+    }
+
+    #sorting {
+        min-width: 150px;
+    }
 }
 
-#filter {
-    cursor: pointer;
-    width: 31px;
-    height: 31px;
-    padding: 6px;
-    border: 2px solid #aaa;
+#filter-details {
+    margin-bottom: 30px;
+
+    hr {
+        border: 1px solid $primary;
+    }
+
+    .basic__form {
+        @include grid(4);
+    }
+
+    .filter__buttons {
+        @include grid(5);
+    }
 }
 
-#search {
-    outline: 2px solid #aaa;
-}
+.catalog__products {
+    @include flex(start, start);
 
-#sorting {
-    min-width: 150px;
+    &__items {
+        @include grid(3);
+        margin-right: 4%;
+        width: 85%;
+    }
+
+    &__sets {
+        h3 {
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .set__card {
+            @include flex(start, start);
+
+            img {
+                height: 80px;
+                width: 80px;
+                margin: auto;
+            }
+
+            &__details {
+                margin-left: 10px;
+            }
+        }
+    }
 }

@@ -18,6 +18,12 @@ export type LoadProductOptions = {
   skip: number;
   limit: number;
   random: boolean;
+  sizeFilter: string;
+  colorFilter: string;
+  categoryFilter: string;
+  saleFilter: boolean;
+  nameFilter: string;
+  sortBy?: string;
 }
 
 export type Cart = Record<string, number>;

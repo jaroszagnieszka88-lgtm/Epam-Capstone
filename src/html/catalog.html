@@ -23,6 +23,10 @@
                         <div class="select__wrapper">
                             <select name="sorting" id="sorting">
                                 <option value="default" selected>Default Sorting</option>
+                                <option value="priceA">Price (from lowest)</option>
+                                <option value="priceD">Price (from highest)</option>
+                                <option value="popularity">Popularity (from highest)</option>
+                                <option value="rating">Rating (from highest)</option>
                             </select>
                         </div>
                     </div>
@@ -31,6 +35,164 @@
                             <label for="search" hidden>Search Models</label>
                             <input type="text" id="search" name="search" autocomplete="off"
                                 placeholder="Search Models" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="filter-details" hidden>
+                <hr />
+
+                <div class="basic__form">
+                    <div class="form__row">
+                        <label for="size-select" class="bold--700">Size</label>
+                        <div class="select__wrapper">
+                            <select name="size" id="size-select">
+                                <option value="" selected>Choose option</option>
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                                <option value="xl">XL</option>
+                                <option value="s,m,l">S-L</option>
+                                <option value="s,m,xl">S, M, XL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <label for="color-select" class="bold--700">Color</label>
+                        <div class="select__wrapper">
+                            <select name="color" id="color-select">
+                                <option value="" selected>Choose option</option>
+                                <option value="red">Red</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+                                <option value="black">Black</option>
+                                <option value="grey">Grey</option>
+                                <option value="yellow">Yellow</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <label for="category-select" class="bold--700">Category</label>
+                        <div class="select__wrapper">
+                            <select name="category" id="category-select">
+                                <option value="" selected>Choose option</option>
+                                <option value="carry-ons">Carry-ons</option>
+                                <option value="suitcases">Suitcases</option>
+                                <option value="luggage sets">Luggage sets</option>
+                                <option value="kids' luggage">Kids' luggage</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form__row">
+                        <label for="rememberMe">Sales</label>
+                        <input type="checkbox" id="sales-checkbox" />
+                    </div>
+                </div>
+
+                <hr />
+                <div class="filter__buttons">
+                    <button class="btn btn--primary" id="filter-clear">CLEAR FILTERS</button>
+                    <button class="btn btn--primary" id="filter-hide">HIDE FILTERS</button>
+                </div>
+
+            </section>
+            <section class="catalog__products">
+                <div class="catalog__products__items">
+                    <div class="product__card">
+                        <img src="/images/SU001.png" alt="Global Explorer Max Comfort Suitcase Pro">
+                        <span class="badge bold--700">SALE</span>
+                        <h3 class="bold--700">Global Explorer Max Comfort Suitcase Pro</h3>
+                        <div class="product__card__bottom">
+                            <p class="bold--700">$250</p>
+                            <button class="btn btn--primary ts__btn--buy" data-product-id="SU001">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <img src="/images/SU001.png" alt="Global Explorer Max Comfort Suitcase Pro">
+                        <span class="badge bold--700">SALE</span>
+                        <h3 class="bold--700">Global Explorer Max Comfort Suitcase Pro</h3>
+                        <div class="product__card__bottom">
+                            <p class="bold--700">$250</p>
+                            <button class="btn btn--primary ts__btn--buy" data-product-id="SU001">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <img src="/images/SU001.png" alt="Global Explorer Max Comfort Suitcase Pro">
+                        <span class="badge bold--700">SALE</span>
+                        <h3 class="bold--700">Global Explorer Max Comfort Suitcase Pro</h3>
+                        <div class="product__card__bottom">
+                            <p class="bold--700">$250</p>
+                            <button class="btn btn--primary ts__btn--buy" data-product-id="SU001">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <img src="/images/SU001.png" alt="Global Explorer Max Comfort Suitcase Pro">
+                        <span class="badge bold--700">SALE</span>
+                        <h3 class="bold--700">Global Explorer Max Comfort Suitcase Pro</h3>
+                        <div class="product__card__bottom">
+                            <p class="bold--700">$250</p>
+                            <button class="btn btn--primary ts__btn--buy" data-product-id="SU001">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <img src="/images/SU001.png" alt="Global Explorer Max Comfort Suitcase Pro">
+                        <span class="badge bold--700">SALE</span>
+                        <h3 class="bold--700">Global Explorer Max Comfort Suitcase Pro</h3>
+                        <div class="product__card__bottom">
+                            <p class="bold--700">$250</p>
+                            <button class="btn btn--primary ts__btn--buy" data-product-id="SU001">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <img src="/images/SU001.png" alt="Global Explorer Max Comfort Suitcase Pro">
+                        <span class="badge bold--700">SALE</span>
+                        <h3 class="bold--700">Global Explorer Max Comfort Suitcase Pro</h3>
+                        <div class="product__card__bottom">
+                            <p class="bold--700">$250</p>
+                            <button class="btn btn--primary ts__btn--buy" data-product-id="SU001">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <img src="/images/SU001.png" alt="Global Explorer Max Comfort Suitcase Pro">
+                        <span class="badge bold--700">SALE</span>
+                        <h3 class="bold--700">Global Explorer Max Comfort Suitcase Pro</h3>
+                        <div class="product__card__bottom">
+                            <p class="bold--700">$250</p>
+                            <button class="btn btn--primary ts__btn--buy" data-product-id="SU001">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog__products__sets">
+                    <h3 class="bold--700">Top Best Sets</h3>
+                    <div class="set__card">
+                        <img src="/images/SET017.png" alt="">
+                        <div class="set__card__details">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit ullam
+                            </p>
+                            <p><span class="golden">★★★★</span>★</p>
+                            <p>$1000</p>
+                        </div>
+                    </div>
+                    <div class="set__card">
+                        <img src="/images/SET018.png" alt="">
+                        <div class="set__card__details">
+                            <p>
+                                Lorem ipsum dolor, aut, suscipit dolore exercitationem corrupti sint nemo
+                            </p>
+                            <p><span class="golden">★★★★★</span></p>
+                            <p>$1200</p>
+                        </div>
+                    </div>
+                    <div class="set__card">
+                        <img src="/images/SET017.png" alt="">
+                        <div class="set__card__details">
+                            <p>
+                                Lorem ipsum dolor sit exercitationem adipisicing elit ullam
+                            </p>
+                            <p><span class="golden">★★★★★</span></p>
+                            <p>$1600</p>
                         </div>
                     </div>
                 </div>

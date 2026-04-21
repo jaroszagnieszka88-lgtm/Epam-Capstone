@@ -5,6 +5,7 @@ import { loginModal } from "./loginModal";
 import {updateCartCounter, loadCartProducts} from "./cart"
 import { contactForm } from "./contact";
 import { initProductPreview, initProductTabs, initProductForm, initFakePlaceholders } from "./product";
+import initCatalog from "./catalog";
 import { LoadProductOptions } from "./types";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else if(path === "/contact"){
         contactForm();
+    }
+    else if(path === "/catalog"){
+        initCatalog();
     }
     else if(path === "/product")
     {
