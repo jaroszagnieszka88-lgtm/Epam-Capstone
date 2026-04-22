@@ -24,6 +24,7 @@ export type LoadProductOptions = {
   saleFilter: boolean;
   nameFilter: string;
   sortBy?: string;
+  onTotal?: (total: number) => void;
 }
 
 export type Cart = Record<string, number>;

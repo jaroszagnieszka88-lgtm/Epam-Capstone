@@ -23,6 +23,7 @@ export async function loadProducts(options: LoadProductOptions): Promise<void> {
       saleFilter: options.saleFilter ?? false,
       nameFilter: options.nameFilter ?? "",
       sortBy: options.sortBy ?? 'default',
+      onTotal: options.onTotal,
     } as LoadProductOptions;
 
     const container = document.querySelector<HTMLDivElement>(opts.containerSelector);
@@ -33,6 +34,12 @@ export async function loadProducts(options: LoadProductOptions): Promise<void> {
     }
 
     const filteredProducts = getFilteredProducts(products, opts);
+
+    try {
+      opts.onTotal?.(filteredProducts.length);
+    } catch {
+
+    }
 
     const sortBy = opts.sortBy || 'default';
     if (sortBy && sortBy !== 'default' && !opts.random) {
