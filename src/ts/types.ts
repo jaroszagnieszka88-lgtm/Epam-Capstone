@@ -1,4 +1,4 @@
-export type Product = {
+export interface Product {
   id: string;
   name: string;
   price: number;
@@ -12,7 +12,7 @@ export type Product = {
   blocks: string[];
 };
 
-export type LoadProductOptions = {
+export interface LoadProductOptions {
   containerSelector: string;
   blockSelector: string;
   skip: number;

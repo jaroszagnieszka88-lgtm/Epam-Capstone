@@ -5,7 +5,7 @@ export function initProductPreview(): void {
 	const urlParams = new URLSearchParams(window.location.search);
 	const id = urlParams.get('id');
 
-	const container = document.querySelector<HTMLElement>(".product__preview__small");
+	const container = document.querySelector<HTMLElement>(".product-preview-small");
 	const mainImg = document.querySelector<HTMLImageElement>("#product-main");
 
 	if (!container || !mainImg || !id) return;
@@ -26,19 +26,19 @@ export function initProductTabs(): void {
 	if (!tabsSections.length) return;
 
 	tabsSections.forEach((tabs) => {
-		const headers = Array.from(tabs.querySelectorAll<HTMLElement>('.tabs__headers__item'));
-		const items = Array.from(tabs.querySelectorAll<HTMLElement>('.tabs__items > div'));
+		const headers = Array.from(tabs.querySelectorAll<HTMLElement>('.tabs-headers-item'));
+		const items = Array.from(tabs.querySelectorAll<HTMLElement>('.tabs-items > div'));
 
 		if (!headers.length || !items.length) return;
 
-		let activeIndex = headers.findIndex(h => h.querySelector('h2')?.classList.contains('item--active'));
+		let activeIndex = headers.findIndex(h => h.querySelector('h2')?.classList.contains('item-active'));
 		if (activeIndex === -1) activeIndex = 0;
 
 		headers.forEach((h, i) => {
 			const h2 = h.querySelector('h2');
 			if (!h2) return;
-			if (i === activeIndex) h2.classList.add('item--active');
-			else h2.classList.remove('item--active');
+			if (i === activeIndex) h2.classList.add('item-active');
+			else h2.classList.remove('item-active');
 		});
 
 		items.forEach((it, i) => {
@@ -48,8 +48,8 @@ export function initProductTabs(): void {
 
 		headers.forEach((h, idx) => {
 			h.addEventListener('click', () => {
-				headers.forEach(hh => hh.querySelector('h2')?.classList.remove('item--active'));
-				h.querySelector('h2')?.classList.add('item--active');
+				headers.forEach(hh => hh.querySelector('h2')?.classList.remove('item-active'));
+				h.querySelector('h2')?.classList.add('item-active');
 
 				items.forEach((it, i) => {
 					if (i === idx) it.removeAttribute('hidden');
@@ -184,7 +184,7 @@ function setPlaceholder(sel: HTMLSelectElement, text: string) {
 }
 
 export function initFakePlaceholders(): void {
-	const containers = Array.from(document.querySelectorAll<HTMLElement>('.fake__placeholder'));
+	const containers = Array.from(document.querySelectorAll<HTMLElement>('.fake-placeholder'));
 	if (!containers.length) return;
 
 	containers.forEach(container => {

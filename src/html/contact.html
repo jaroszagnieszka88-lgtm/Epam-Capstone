@@ -12,9 +12,9 @@
 <body>
     <%- include('html/_header.html') %>
 
-        <div class="top__hero top__hero--big contact__hero">
+        <div class="top-hero top-hero-big contact-hero">
             <div>
-                <h1 class="bold--700">Contact Us</h1>
+                <h1 class="bold-700">Contact Us</h1>
                 <p>Duis vestibulum elit vel neque pharetra vulputate.</p>
                 <p>Duis rutrum non risus in imperdiet. </p>
             </div>
@@ -22,76 +22,76 @@
         </div>
 
         <main class="container">
-            <section class="icon__info">
-                <div class="icon__info__item">
+            <section class="icon-info">
+                <div class="icon-info-item">
                     <div>
                         <img src="/images/iconLocation.png" alt="Our Location" />
                     </div>
 
-                    <p class="bold--700">Our Location</p>
+                    <p class="bold-700">Our Location</p>
                     <p>1234 NW Bobcat Lane, St. Robert, MO 65584-5678</p>
                 </div>
 
-                <div class="icon__info__item">
+                <div class="icon-info-item">
                     <div>
                         <img src="/images/iconTime.png" alt="Operating Time" />
                     </div>
 
-                    <p class="bold--700">Operating Time</p>
+                    <p class="bold-700">Operating Time</p>
                     <p>Monday - Friday: 9am - 6 pm<br />Weekends: 10:30 am - 6pm</p>
                 </div>
 
-                <div class="icon__info__item">
+                <div class="icon-info-item">
                     <div>
                         <img src="/images/iconEmail.png" alt="Our Email" />
                     </div>
 
-                    <p class="bold--700">Our Email</p>
+                    <p class="bold-700">Our Email</p>
                     <p>best@shop.com<br />info@bestshop.com</p>
                 </div>
 
-                <div class="icon__info__item">
+                <div class="icon-info-item">
                     <div>
                         <img src="/images/iconPhone.png" alt="Call Us" />
                     </div>
 
-                    <p class="bold--700">Call Us</p>
+                    <p class="bold-700">Call Us</p>
                     <p>(269)142-8473<br />(700)265-2917</p>
                 </div>
             </section>
 
-            <section class="contact__container container">
+            <section class="contact-container container">
                 <img src="/images/feedback.png" alt="Contact" />
 
-                <div class="basic__form">
-                    <h2 class="bold--700">Your Feedback Is Much Appreciated!</h2>
+                <div class="basic-form">
+                    <h2 class="bold-700">Your Feedback Is Much Appreciated!</h2>
                     <p>We will contact you when you complete the following form!</p>
 
                     <form id="contactForm" novalidate>
-                        <div class="form__row">
-                            <label for="name" class="bold--700">Your Name <span>*</span></label>
+                        <div class="form-row">
+                            <label for="name" class="bold-700">Your Name <span>*</span></label>
                             <input type="text" id="name" name="name" required autocomplete="off" />
                         </div>
 
-                        <div class="form__row">
-                            <label for="email" class="bold--700">Your Email Address <span>*</span></label>
+                        <div class="form-row">
+                            <label for="email" class="bold-700">Your Email Address <span>*</span></label>
                             <input type="email" id="contactEmail" name="email" required autocomplete="off" />
-                            <div id="emailError" class="form__message error">Please enter a valid email address.</div>
+                            <div id="emailError" class="form-message error">Please enter a valid email address.</div>
                         </div>
 
-                        <div class="form__row">
-                            <label for="topic" class="bold--700">Topic <span>*</span></label>
+                        <div class="form-row">
+                            <label for="topic" class="bold-700">Topic <span>*</span></label>
                             <input type="text" id="topic" name="topic" required autocomplete="off" />
                         </div>
 
-                        <div class="form__row">
-                            <label for="message" class="bold--700">Your Message <span>*</span></label>
+                        <div class="form-row">
+                            <label for="message" class="bold-700">Your Message <span>*</span></label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn--primary">SEND</button>
+                        <button type="submit" class="btn btn-primary">SEND</button>
 
-                        <div id="contactMessage" class="form__message" role="status" aria-live="polite"></div>
+                        <div id="contactMessage" class="form-message" role="status" aria-live="polite"></div>
                     </form>
                 </div>
             </section>

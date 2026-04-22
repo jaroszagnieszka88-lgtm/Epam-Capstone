@@ -4,7 +4,7 @@
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgb(0 0 0 / 60%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
 }
 
 .modal {
-    background: #fff;
+    background: white;
     padding: 20px;
     border-radius: 12px;
     width: 450px;
@@ -24,10 +24,12 @@
 
     form {
         @include grid(1, auto);
+
         height: 100%;
 
-        .form-row--flex {
+        .form-row-flex {
             @include flex(space-between, center);
+            
             text-align: center;
 
             label {
@@ -39,7 +41,7 @@
                 text-decoration: none;
             }
 
-            #rememberMe {
+            #remember-me {
                 margin-right: 20px;
                 width: auto;
             }
@@ -70,7 +72,7 @@
         flex: 1;
     }
 
-    #togglePassword {
+    #toggle-password {
         cursor: pointer;
         position: absolute;
         right: 10px;

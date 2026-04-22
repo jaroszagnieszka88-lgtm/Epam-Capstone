@@ -2,19 +2,19 @@
 @use '../abstracts/mixins' as *;
 
 .cart {
-    &__hero {
+    &-hero {
         background: url("/images/cartHero.png") center/cover no-repeat;
     }
 
-    &__container {
+    &-container {
         width: 85%;
         margin: 40px auto;
     }
 
-    &__table {
+    &-table {
         padding: 16px;
 
-        &--header {
+        &-header {
             @include grid(6);
 
             div {
@@ -28,12 +28,13 @@
         }
     }
 
-    &__items {
+    &-items {
         margin-top: 10px;
     }
 
-    &__row {
+    &-row {
         @include grid(6);
+        
         align-items: center;
         padding: 20px 16px;
         border-bottom: 2px solid $primary;
@@ -43,20 +44,20 @@
             color: black;
         }
 
-        .cart_quantity {
+        .cart-quantity {
             color: black;
         }
 
-        div.cart__delete {
+        div.cart-delete {
             color: $primary;
         }
     }
 
-    &__image img {
+    &-image img {
         width: 60px;
     }
 
-    &__quantity {
+    &-quantity {
         @include grid(3);
 
         .qty-btn {
@@ -69,22 +70,23 @@
         }
     }
 
-    &__delete {
+    &-delete {
         cursor: pointer;
         font-size: 28px;
     }
 
-    &__bottom {
+    &-bottom {
         @include flex(space-between, flex-start);
+        
         margin-top: 40px;
         gap: 40px;
     }
 
-    &__actions {
+    &-actions {
         @include grid(2);
     }
 
-    &__summary {
+    &-summary {
         background: #5a5652;
 
         span {
@@ -94,16 +96,19 @@
         padding: 30px;
         width: 300px;
 
-        .summary__row {
+        .summary-row {
             @include flex(space-between, center);
+
             padding: 12px 0;
             border-bottom: 1px solid $primary;
         }
-        .summary__row[hidden]{
-            display:none;
+
+        .summary-row[hidden] {
+            display: none;
         }
-        button{
-            width:50%;
+
+        button {
+            width: 50%;
         }
     }
 }

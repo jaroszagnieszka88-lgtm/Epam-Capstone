@@ -1,7 +1,7 @@
 export function setActiveNav() {
   const path = window.location.pathname || "/";
 
-  const links = document.querySelectorAll<HTMLAnchorElement>(".nav__list__item");
+  const links = document.querySelectorAll<HTMLAnchorElement>(".nav-list-item");
 
   links.forEach((link) => {
     const href = link.getAttribute("href");
@@ -11,9 +11,9 @@ export function setActiveNav() {
     const normalizedPath = path === "/" ? "/" : path.replace(/\/$/, "");
 
     if (normalizedHref === normalizedPath) {
-      link.classList.add("nav__list__item--active");
+      link.classList.add("nav-list-item-active");
     } else {
-      link.classList.remove("nav__list__item--active");
+      link.classList.remove("nav-list-item-active");
     }
   });
   return path;

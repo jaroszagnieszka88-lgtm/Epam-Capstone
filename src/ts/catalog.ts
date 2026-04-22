@@ -2,7 +2,7 @@ import { loadProducts } from "./productBlocks";
 import { LoadProductOptions } from "./types";
 
 export default function initCatalog(): void {
-    const containerSelector = ".catalog__products__items";
+    const containerSelector = ".catalog-products-items";
 
     const pageSize = 12;
     let currentPage = 1;
@@ -92,7 +92,7 @@ export default function initCatalog(): void {
         paginationContainer.innerHTML = "";
 
         const prev = document.createElement('button');
-        prev.className = 'pagination__prev bold--700';
+        prev.className = 'pagination-prev bold-700';
         prev.textContent = '< BACK';
         prev.addEventListener('click', () => {
             if (currentPage <= 1) return;
@@ -107,7 +107,7 @@ export default function initCatalog(): void {
 
         pagesToShow.forEach(p => {
             const btn = document.createElement('button');
-            btn.className = 'pagination__page';
+            btn.className = 'pagination-page';
             if (p === currentPage) btn.classList.add('active');
             btn.textContent = String(p);
             btn.dataset.page = String(p);
@@ -120,7 +120,7 @@ export default function initCatalog(): void {
         });
 
         const next = document.createElement('button');
-        next.className = 'pagination__next bold--700';
+        next.className = 'pagination-next bold-700';
         next.textContent = 'NEXT >';
         next.addEventListener('click', () => {
             if (currentPage >= totalPages) return;

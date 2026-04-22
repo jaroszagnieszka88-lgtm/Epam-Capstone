@@ -37,8 +37,8 @@ export async function loadProducts(options: LoadProductOptions): Promise<void> {
 
     try {
       opts.onTotal?.(filteredProducts.length);
-    } catch {
-
+    } catch (e) {
+      console.log(e);
     }
 
     const sortBy = opts.sortBy || 'default';
@@ -94,19 +94,19 @@ function getFilteredProducts(products: Product[], o: LoadProductOptions) {
 function createProductCard(product: Product, blockSelector: string): HTMLElement {
   const redirect = blockSelector == "new products arrival";
   const buttonText = redirect ? "View Product" : "Add to Cart";
-  const button = redirect ? `<a href="/product?id=${product.id}" class="btn btn--primary width--full">${buttonText}</a>`
-    : `<button class="btn btn--primary ts__btn--buy" data-product-id="${product.id}">${buttonText}</button>`;
+  const button = redirect ? `<a href="/product?id=${product.id}" class="btn btn-primary width-full">${buttonText}</a>`
+    : `<button class="btn btn-primary ts-btn-buy" data-product-id="${product.id}">${buttonText}</button>`;
   const card = document.createElement("div");
-  card.className = "product__card";
+  card.className = "product-card";
 
   card.innerHTML = `
     <a href="/product?id=${product.id}">
       <img src="${product.imageUrl}" alt="${product.name}" />
-      ${product.salesStatus ? `<span class="badge bold--700">SALE</span>` : ""}
-      <h3 class="bold--700">${product.name}</h3>
+      ${product.salesStatus ? `<span class="badge bold-700">SALE</span>` : ""}
+      <h3 class="bold-700">${product.name}</h3>
     </a>
-    <div class="product__card__bottom">
-      <p class="bold--700">$${product.price}</p>
+    <div class="product-card-bottom">
+      <p class="bold-700">$${product.price}</p>
       ${button}
     </div>
   `;
@@ -122,7 +122,7 @@ function attachCardListeners(container: HTMLElement): void {
 function handleCardClick(event: Event): void {
   const target = event.target as HTMLElement;
 
-  const buyButton = target.closest(".ts__btn--buy") as HTMLElement | null;
+  const buyButton = target.closest(".ts-btn-buy") as HTMLElement | null;
   if (!buyButton) return;
 
   const productId = buyButton.dataset.productId;

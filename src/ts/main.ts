@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const path = setActiveNav();
     if (path === "/") {
         loadProducts(
-            {containerSelector: "#selected-products .product__block__grid", blockSelector: "selected products", limit: 4} as LoadProductOptions
+            {containerSelector: "#selected-products .product-block-grid", blockSelector: "selected products", limit: 4} as LoadProductOptions
         );
         loadProducts(
-            {containerSelector:"#new-products .product__block__grid", blockSelector: "new products arrival", limit:4} as LoadProductOptions
+            {containerSelector:"#new-products .product-block-grid", blockSelector: "new products arrival", limit:4} as LoadProductOptions
         );
         initGallery();
     }
     else if(path === "/cart"){
-        loadCartProducts(".cart__items");
+        loadCartProducts(".cart-items");
     }
     else if(path === "/contact"){
         contactForm();
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if(path === "/product")
     {
         loadProducts(
-            {containerSelector: "#also-like-products .product__block__grid", blockSelector: "", limit: 4, random: true} as LoadProductOptions
+            {containerSelector: "#also-like-products .product-block-grid", blockSelector: "", limit: 4, random: true} as LoadProductOptions
         );
         initProductPreview();
         initProductTabs();

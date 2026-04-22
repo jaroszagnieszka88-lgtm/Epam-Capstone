@@ -31,7 +31,7 @@ export function updateCartCounter(): void {
     }
 }
 
-export function addToCart(productId: string, amount: number = 1): void {
+export function addToCart(productId: string, amount = 1): void {
     const cart = getCart();
 
     cart[productId] = (cart[productId] || 0) + amount;
@@ -81,33 +81,36 @@ export async function loadCartProducts(containerSelector: string): Promise<void>
 
 function createProductRow(product: Product, quantity: number): HTMLElement {
     const row = document.createElement("div");
-    row.className = "cart__row";
+    row.className = "cart-row";
     row.dataset.productId = product.id;
 
     row.innerHTML = `
-        <div class="cart__image">
+        <div class="cart-image">
             <img src="${product.imageUrl}" alt="product" />
         </div>
-        <div class="cart__name bold--700">${product.name}</div>
-        <div class="cart__price bold--700">$${product.price}</div>
-        <div class="cart__quantity bold--700">
-            <button class="qty-btn minus bold--700">-</button>
-            <span class="cart_quantity bold--700">${quantity}</span>
-            <button class="qty-btn plus bold--700">+</button>
+        <div class="cart-name bold-700">${product.name}</div>
+        <div class="cart-price bold-700">$${product.price}</div>
+        <div class="cart-quantity bold-700">
+            <button class="qty-btn minus bold-700">-</button>
+            <span class="cart_quantity bold-700">${quantity}</span>
+            <button class="qty-btn plus bold-700">+</button>
         </div>
-        <div class="cart__total bold--700">$${quantity * product.price}</div>
-        <div class="cart__delete bold--700">🗑</div>
+        <div class="cart-total bold-700">$${quantity * product.price}</div>
+        <div class="cart-delete bold-700">🗑</div>
   `;
 
     return row;
 }
 
 function updateCartSummary(): void {
-    const rows = document.querySelectorAll(".cart__row");
+    const rows = document.querySelectorAll(".cart-row");
 
-    const subtotalEl = document.getElementById("subtotal")!;
-    const discountEl = document.getElementById("discount")!;
-    const totalEl = document.getElementById("total")!;
+    const subtotalEl = document.getElementById("subtotal");
+    const discountEl = document.getElementById("discount");
+    const totalEl = document.getElementById("total");
+    if(!discountEl || !subtotalEl || !totalEl)
+        return;
+    
     const discountRow = discountEl.parentElement as HTMLElement;
 
     const SHIPPING = 30;
@@ -115,8 +118,8 @@ function updateCartSummary(): void {
     let subtotal = 0;
 
     rows.forEach((row) => {
-        const totalEl = row.querySelector(".cart__total") as HTMLElement;
-        const value = parseFloat(totalEl.textContent!.replace("$", ""));
+        const totalEl = row.querySelector(".cart-total") as HTMLElement;
+        const value = parseFloat(totalEl.textContent.replace("$", ""));
         subtotal += value;
     });
 
@@ -140,12 +143,12 @@ function attachCartListeners(container: HTMLElement): void {
         const target = event.target as HTMLElement;
         const cart = getCart();
 
-        const row = target.closest(".cart__row") as HTMLElement | null;
+        const row = target.closest(".cart-row") as HTMLElement | null;
         if (!row) return;
 
         const productId = row.dataset.productId as string;
 
-        const deleteBtn = target.closest(".cart__delete");
+        const deleteBtn = target.closest(".cart-delete");
         if (deleteBtn) {
             row.remove();
             delete cart[productId];
@@ -156,8 +159,8 @@ function attachCartListeners(container: HTMLElement): void {
         }
 
         const qtySpan = row.querySelector(".cart_quantity") as HTMLElement;
-        const priceEl = row.querySelector(".cart__price") as HTMLElement;
-        const totalEl = row.querySelector(".cart__total") as HTMLElement;
+        const priceEl = row.querySelector(".cart-price") as HTMLElement;
+        const totalEl = row.querySelector(".cart-total") as HTMLElement;
 
         if (!qtySpan || !priceEl || !totalEl) return;
 
@@ -174,7 +177,7 @@ function attachCartListeners(container: HTMLElement): void {
             cart[productId] = quantity;
         }
 
-        const price = parseFloat(priceEl.textContent!.replace("$", ""));
+        const price = parseFloat(priceEl.textContent.replace("$", ""));
         qtySpan.textContent = String(quantity);
         totalEl.textContent = `$${quantity * price}`;
         saveCart(cart);

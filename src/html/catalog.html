@@ -12,15 +12,15 @@
 <body>
     <%- include('html/_header.html') %>
         <main class="container">
-            <section class="catalog__settings">
+            <section class="catalog-settings">
                 <p id="pagination-summary">Showing 1-12 Of 15 Results</p>
-                <div class="basic__form settings__form">
-                    <div class="form__row">
+                <div class="basic-form settings-form">
+                    <div class="form-row">
                         <img id="filter" src="/images/filterIcon.png" alt="">
                     </div>
-                    <div class="form__row">
+                    <div class="form-row">
                         <label for="sorting" hidden>Sorting</label>
-                        <div class="select__wrapper">
+                        <div class="select-wrapper">
                             <select name="sorting" id="sorting">
                                 <option value="default" selected>Default Sorting</option>
                                 <option value="priceA">Price (from lowest)</option>
@@ -30,8 +30,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form__row">
-                        <div class="search__wrapper fake__placeholder">
+                    <div class="form-row">
+                        <div class="search-wrapper fake-placeholder">
                             <label for="search" hidden>Search Models</label>
                             <input type="text" id="search" name="search" autocomplete="off"
                                 placeholder="Search Models" />
@@ -42,10 +42,10 @@
             <section id="filter-details" hidden>
                 <hr />
 
-                <div class="basic__form">
-                    <div class="form__row">
-                        <label for="size-select" class="bold--700">Size</label>
-                        <div class="select__wrapper">
+                <div class="basic-form">
+                    <div class="form-row">
+                        <label for="size-select" class="bold-700">Size</label>
+                        <div class="select-wrapper">
                             <select name="size" id="size-select">
                                 <option value="" selected>Choose option</option>
                                 <option value="s">S</option>
@@ -57,9 +57,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form__row">
-                        <label for="color-select" class="bold--700">Color</label>
-                        <div class="select__wrapper">
+                    <div class="form-row">
+                        <label for="color-select" class="bold-700">Color</label>
+                        <div class="select-wrapper">
                             <select name="color" id="color-select">
                                 <option value="" selected>Choose option</option>
                                 <option value="red">Red</option>
@@ -71,9 +71,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form__row">
-                        <label for="category-select" class="bold--700">Category</label>
-                        <div class="select__wrapper">
+                    <div class="form-row">
+                        <label for="category-select" class="bold-700">Category</label>
+                        <div class="select-wrapper">
                             <select name="category" id="category-select">
                                 <option value="" selected>Choose option</option>
                                 <option value="carry-ons">Carry-ons</option>
@@ -84,28 +84,28 @@
                         </div>
 
                     </div>
-                    <div class="form__row">
-                        <label for="rememberMe">Sales</label>
+                    <div class="form-row">
+                        <label for="sales-checkbox">Sales</label>
                         <input type="checkbox" id="sales-checkbox" />
                     </div>
                 </div>
 
                 <hr />
-                <div class="filter__buttons">
-                    <button class="btn btn--primary" id="filter-clear">CLEAR FILTERS</button>
-                    <button class="btn btn--primary" id="filter-hide">HIDE FILTERS</button>
+                <div class="filter-buttons">
+                    <button class="btn btn-primary" id="filter-clear">CLEAR FILTERS</button>
+                    <button class="btn btn-primary" id="filter-hide">HIDE FILTERS</button>
                 </div>
 
             </section>
-            <section class="catalog__products">
-                <div class="catalog__products__items">
+            <section class="catalog-products">
+                <div class="catalog-products-items">
 
                 </div>
-                <div class="catalog__products__sets">
-                    <h3 class="bold--700">Top Best Sets</h3>
-                    <div class="set__card">
+                <div class="catalog-products-sets">
+                    <h3 class="bold-700">Top Best Sets</h3>
+                    <div class="set-card">
                         <img src="/images/SET017.png" alt="">
-                        <div class="set__card__details">
+                        <div class="set-card-details">
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit ullam
                             </p>
@@ -113,9 +113,9 @@
                             <p>$1000</p>
                         </div>
                     </div>
-                    <div class="set__card">
+                    <div class="set-card">
                         <img src="/images/SET018.png" alt="">
-                        <div class="set__card__details">
+                        <div class="set-card-details">
                             <p>
                                 Lorem ipsum dolor, aut, suscipit dolore exercitationem corrupti sint nemo
                             </p>
@@ -123,9 +123,9 @@
                             <p>$1200</p>
                         </div>
                     </div>
-                    <div class="set__card">
+                    <div class="set-card">
                         <img src="/images/SET017.png" alt="">
-                        <div class="set__card__details">
+                        <div class="set-card-details">
                             <p>
                                 Lorem ipsum dolor sit exercitationem adipisicing elit ullam
                             </p>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
             </section>
-            <div id="pagination-controls" class="pagination__controls"></div>
+            <div id="pagination-controls" class="pagination-controls"></div>
         </main>
         <%- include('html/_footer.html') %>
 </body>

@@ -1,14 +1,13 @@
 export function loginModal() {
     const modal = document.getElementById("loginModal") as HTMLDivElement;
-    const trigger = document.getElementById("userTrigger") as HTMLAnchorElement;
-    const form = document.getElementById("loginForm") as HTMLFormElement;
+    const trigger = document.getElementById("user-trigger") as HTMLAnchorElement;
+    const form = document.getElementById("login-form") as HTMLFormElement;
 
     const emailInput = document.getElementById("email") as HTMLInputElement;
     const passwordInput = document.getElementById("password") as HTMLInputElement;
-    const togglePassword = document.getElementById("togglePassword") as HTMLSpanElement;
+    const togglePassword = document.getElementById("toggle-password") as HTMLSpanElement;
 
-    const emailRegex =
-        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     modal.addEventListener("click", (e: MouseEvent) => {
         if (e.target !== modal)

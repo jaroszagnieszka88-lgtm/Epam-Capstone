@@ -10,24 +10,24 @@
         cursor: grabbing;
     }
 
-    &__viewport {
+    &-viewport {
         overflow: hidden;
     }
 
-    &__track {
+    &-track {
         display: flex;
         transition: transform 0.4s ease;
     }
 
-    &__slide {
+    &-slide {
         position: relative;
         overflow: hidden;
         height: 600px;
-        margin:0 2%;
+        margin: 0 2%;
         flex: 0 0 calc(84% / 4);
         cursor: grab;
 
-         &:active {
+        &:active {
             cursor: grabbing;
         }
 
@@ -42,12 +42,12 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgb(0 0 0 / 40%);
             transition: background 0.5s ease;
             z-index: 1;
         }
 
-        &__overlay {
+        &-overlay {
             position: absolute;
             inset: 0;
             z-index: 2;
@@ -78,15 +78,15 @@
         }
 
         &:hover::after {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgb(0 0 0 / 50%);
         }
     }
 
-    &__btn {
+    &-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.7);
+        background: rgb(255 255 255 / 70%);
         border: none;
         width: 40px;
         height: 40px;
@@ -94,11 +94,11 @@
         cursor: pointer;
         font-size: 20px;
 
-        &--left {
+        &-left {
             left: 5%;
         }
 
-        &--right {
+        &-right {
             right: 5%;
         }
     }

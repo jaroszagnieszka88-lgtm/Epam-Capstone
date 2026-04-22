@@ -57,7 +57,6 @@ export function initGallery() {
     });
 }
 
-// --- Swipe / Drag Logic ---
 function onStart(x: number) {
     if (!track) return;
     startX = x;

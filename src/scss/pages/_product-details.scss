@@ -4,7 +4,7 @@
 .product {
     margin-top: 50px;
 
-    &__preview {
+    &-preview {
         #product-main {
             object-fit: contain;
             width: 100%;
@@ -12,7 +12,7 @@
             margin-bottom: 20px;
         }
 
-        &__small {
+        &-small {
             @include grid(4);
 
             img {
@@ -24,10 +24,10 @@
         }
     }
 
-    &__right {
+    &-right {
         text-align: left;
 
-        .product__rating {
+        .product-rating {
             @include flex(start, middle);
 
             #product-reviews-amount {
@@ -43,14 +43,17 @@
             }
         }
 
-        #product-description{
+        #product-description {
             line-height: 1.5;
         }
+
         #product-payment {
             @include flex(start, center);
-            span{
+
+            span {
                 color: #727174;
             }
+
             img {
                 width: 45px;
                 height: 15px;
@@ -65,15 +68,16 @@
         }
 
         #product-form {
-            .product__cart__controls {
+            .product-cart-controls {
                 @include flex(start, end);
 
-                .quantity__group {
+                .quantity-group {
                     @include flex(space-between, center);
+                    
                     border: 2px solid $primary;
                     overflow: hidden;
                     background: white;
-                    padding-bottom:5px;
+                    padding-bottom: 5px;
                     margin: 5px 12px 0 0;
 
                     button {
@@ -95,7 +99,7 @@
                 }
 
                 #add-to-cart {
-                    width:100%;
+                    width: 100%;
                 }
             }
         }
@@ -107,10 +111,10 @@
     margin-bottom: 100px;
     margin-top: 100px;
 
-    &__headers {
+    &-headers {
         @include flex(center, center);
 
-        &__item {
+        &-item {
             margin: 0 40px;
 
             h2 {
@@ -120,14 +124,14 @@
                 cursor: pointer;
             }
 
-            h2.item--active {
+            h2.item-active {
                 border-bottom: 2px solid $primary;
             }
         }
     }
 
-    &__items {
-        &--wrap {
+    &-items {
+        &-wrap {
             white-space: pre-line;
         }
 
@@ -135,36 +139,36 @@
     }
 }
 
-#reviewText {
+#review-text {
     min-height: 160px;
 }
 
-#saveName~label {
+#save-name~label {
     color: $text;
 }
 
 .review {
     margin-top: 50px;
 
-    &__avatar {
+    &-avatar {
         width: 46px;
         height: 46px;
         border-radius: 50%;
         margin-right: 10px;
     }
 
-    &__person {
+    &-person {
         @include flex(start, start);
     }
 
-    &__stars {
+    &-stars {
         display: inline-block;
         margin-left: 12px;
         font-size: 28px;
         color: #f3b400;
     }
 
-    &__body {
+    &-body {
         padding: 0 56px;
         font-size: 18px;
     }

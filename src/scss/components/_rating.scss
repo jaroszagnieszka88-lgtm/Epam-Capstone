@@ -1,12 +1,13 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-.form__row:has(> .star__wrap) {
+.form-row:has(> .star-wrap) {
     @include flex(start, center);
 }
 
-.star__wrap {
+.star-wrap {
     @include flex(start, start);
+    
     flex-direction: row-reverse;
     position: relative;
 
@@ -14,24 +15,24 @@
         position: absolute;
         left: -9999px;
 
-        &__label {
+        &-label {
             cursor: pointer;
             font-size: 28px;
             color: #ccc;
         }
     }
 
-    .star__label:hover,
-    .star__label:hover~.star__label {
+    .star-label:hover,
+    .star-label:hover~.star-label {
         color: $golden;
     }
 
-    .star:checked~.star__label {
+    .star:checked~.star-label {
         color: $golden;
     }
 }
 
-.star__title {
+.star-title {
     color: black;
     margin-right: 20px;
 }

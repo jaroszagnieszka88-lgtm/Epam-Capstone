@@ -8,7 +8,7 @@
   font-weight: 700;
   font-size: 15px;
 
-  &--primary {
+  &-primary {
     background: $primary;
     color: white;
 
@@ -17,12 +17,13 @@
     }
   }
 
-  &--secondary {
+  &-secondary {
     background: white;
     color: $primary;
   }
-  a{
-    color:white;
+
+  a {
+    color: white;
     text-decoration: none;
     font-weight: 700;
   }

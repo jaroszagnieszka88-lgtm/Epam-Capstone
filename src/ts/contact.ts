@@ -9,8 +9,7 @@ export function contactForm() {
 	const emailError = document.getElementById("emailError") as HTMLElement | null;
 	const feedback = document.getElementById("contactMessage") as HTMLElement | null;
 
-	const emailRegex = 
-        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 	function showFeedback(text: string, success = true) {
 		if (!feedback) return;

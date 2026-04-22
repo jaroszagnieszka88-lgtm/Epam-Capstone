@@ -1,17 +1,18 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-.product__block {
+.product-block {
   margin-top: 150px;
   margin-bottom: 150px;
 
-  &__grid {
+  &-grid {
     @include grid(4);
-    margin: 50px 2% 0 2%;
+    
+    margin: 50px 2% 0;
     align-items: center;
   }
 
-  &__title {
+  &-title {
     @include flex(center, center);
 
     margin: auto;
@@ -24,12 +25,12 @@
   }
 }
 
-.product__card {
+.product-card {
   text-align: center;
   position: relative;
   height: 700px;
 
-  a{
+  a {
     text-decoration: none;
   }
 
@@ -56,7 +57,7 @@
     margin-bottom: 20px;
   }
 
-  &__bottom {
+  &-bottom {
     position: absolute;
     bottom: 20px;
     left: 0;

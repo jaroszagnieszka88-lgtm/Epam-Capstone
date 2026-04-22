@@ -8,7 +8,8 @@
     "build": "echo \"Dummy build script required for Autocode Compile\"",
     "ts-compile": "npx tsc",
     "compile": "sass src/scss/main.scss dist/css/main.css",
-    "dev": "npm run ts-compile && npm run compile && vite"
+    "dev": "npm run ts-compile && npm run compile && vite",
+    "lint": "npx eslint . && npx stylelint \"**/*.scss\""
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,13 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.1",
     "sass": "^1.99.0",
-    "typescript": "^6.0.2",
+    "stylelint": "^17.8.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.0",
     "vite-plugin-ejs": "^1.7.0"
   },
   "dependencies": {

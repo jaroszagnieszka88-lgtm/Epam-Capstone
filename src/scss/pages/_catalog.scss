@@ -1,18 +1,19 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-.catalog__settings {
+.catalog-settings {
     @include grid(2);
+    
     margin: 30px 0;
 
     #pagination-summary {
         margin-right: 50%;
     }
 
-    .settings__form {
+    .settings-form {
         @include flex(end, start);
 
-        .form__row {
+        .form-row {
             margin: 0 5%;
         }
     }
@@ -22,11 +23,11 @@
         width: 31px;
         height: 31px;
         padding: 6px;
-        border: 2px solid #aaa;
+        border: 2px solid $lightgray;
     }
 
     #search {
-        outline: 2px solid #aaa;
+        outline: 2px solid $lightgray;
     }
 
     #sorting {
@@ -41,31 +42,32 @@
         border: 1px solid $primary;
     }
 
-    .basic__form {
+    .basic-form {
         @include grid(4);
     }
 
-    .filter__buttons {
+    .filter-buttons {
         @include grid(5);
     }
 }
 
-.catalog__products {
+.catalog-products {
     @include flex(start, start);
 
-    &__items {
+    &-items {
         @include grid(3);
+
         margin-right: 4%;
         width: 85%;
     }
 
-    &__sets {
+    &-sets {
         h3 {
             color: black;
             margin-bottom: 10px;
         }
 
-        .set__card {
+        .set-card {
             @include flex(start, start);
 
             img {
@@ -74,15 +76,17 @@
                 margin: auto;
             }
 
-            &__details {
+            &-details {
                 margin-left: 10px;
             }
         }
-    }
+    }    
+    
 }
 
-.pagination__controls {
+.pagination-controls {
     @include flex(center, center);
+    
     gap: 12px;
     margin: 24px 0 24px 40%;
     width: 300px;
@@ -91,14 +95,14 @@
         width: 50px;
     }
 
-    .pagination__next,
-    .pagination__prev {
+    .pagination-next,
+    .pagination-prev {
         width: 90px;
     }
 
-    .pagination__prev {
+    .pagination-prev {
         border: 2px solid $primary;
-        background: #fff;
+        background: white;
         color: black;
         padding: 8px 14px;
         border-radius: $radius;
@@ -106,7 +110,7 @@
         cursor: pointer;
     }
 
-    .pagination__page {
+    .pagination-page {
         min-width: 40px;
         height: 40px;
         display: inline-flex;
@@ -121,15 +125,15 @@
         padding: 0 12px;
     }
 
-    .pagination__page.active {
+    .pagination-page.active {
         background: $primary;
-        color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+        color: white;
+        box-shadow: 0 4px 8px rgb(0 0 0 / 6%);
     }
 
-    .pagination__next {
+    .pagination-next {
         border: 2px solid $primary;
-        background: #fff;
+        background: white;
         color: black;
         padding: 10px 18px;
         border-radius: $radius;
@@ -137,14 +141,14 @@
         cursor: pointer;
     }
 
-    .pagination__prev:hover,
-    .pagination__next:hover,
-    .pagination__page:hover {
+    .pagination-prev:hover,
+    .pagination-next:hover,
+    .pagination-page:hover {
         background: $primary;
-        color: #fff;
+        color: white;
     }
 
-    .pagination__page+.pagination__page {
+    .pagination-page+.pagination-page {
         margin-left: 8px;
     }
 }

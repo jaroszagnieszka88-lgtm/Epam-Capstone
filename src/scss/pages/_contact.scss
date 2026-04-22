@@ -1,14 +1,15 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-.contact__hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/images/contactUsHero.png') center/cover no-repeat;
+.contact-hero {
+    background: linear-gradient(rgb(0 0 0 / 35%), rgb(0 0 0 / 35%)), url('/images/contactUsHero.png') center/cover no-repeat;
 }
 
-.contact__container {
+.contact-container {
+    @include grid(2, 60px);
+
     height: 620px;
     margin-bottom: 150px;
-    @include grid(2, 60px);
     overflow: hidden;
 
     img {
