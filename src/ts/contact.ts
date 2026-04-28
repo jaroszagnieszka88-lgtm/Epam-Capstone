@@ -6,47 +6,48 @@ export function contactForm() {
 	const emailInput = document.getElementById("contactEmail") as HTMLInputElement | null;
 	const topicInput = document.getElementById("topic") as HTMLInputElement | null;
 	const messageInput = document.getElementById("message") as HTMLTextAreaElement | null;
-	const emailError = document.getElementById("emailError") as HTMLElement | null;
-	const feedback = document.getElementById("contactMessage") as HTMLElement | null;
+	const emailError = document.getElementById("emailError");
+	const feedback = document.getElementById("contactMessage");
 
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 	function showFeedback(text: string, success = true) {
-		if (!feedback) return;
+		if (!feedback || !(feedback instanceof HTMLElement)) return;
 		feedback.textContent = text;
 		feedback.classList.remove("success", "error");
 		feedback.classList.add(success ? "success" : "error");
 		feedback.style.display = "block";
 	}
 
-	if (emailInput && emailError) {
+	if (emailInput && emailError && emailError instanceof HTMLElement) {
 		emailInput.addEventListener("keyup", () => {
 			const val = emailInput.value.trim();
 			const valid = emailRegex.test(val);
 			if (!val) {
-                emailError.style.display = "none";
+				emailError.style.display = "none";
 				emailInput.classList.remove("invalid");
 				return;
 			}
-			if (!valid) {
-				emailError.style.display = "block";
-				emailInput.classList.add("invalid");
-			} else {
+			if (valid) {
 				emailError.style.display = "none";
 				emailInput.classList.remove("invalid");
+			} else {
+				emailError.style.display = "block";
+				emailInput.classList.add("invalid");
+
 			}
 		});
 	}
 
 	form.addEventListener("submit", (e) => {
 		e.preventDefault();
-        if(feedback)
-            feedback.style.display = "none";
-        
-		const name = nameInput?.value.trim() || "";
-		const email = emailInput?.value.trim() || "";
-		const topic = topicInput?.value.trim() || "";
-		const message = messageInput?.value.trim() || "";
+		if (feedback)
+			feedback.style.display = "none";
+
+		const name = nameInput?.value.trim() ?? "";
+		const email = emailInput?.value.trim() ?? "";
+		const topic = topicInput?.value.trim() ?? "";
+		const message = messageInput?.value.trim() ?? "";
 
 		if (!name || !email || !topic || !message) {
 			showFeedback("Please fill all required fields.", false);

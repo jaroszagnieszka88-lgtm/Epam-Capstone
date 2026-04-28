@@ -111,7 +111,8 @@ function updateCartSummary(): void {
     if(!discountEl || !subtotalEl || !totalEl)
         return;
     
-    const discountRow = discountEl.parentElement as HTMLElement;
+    const discountRow = discountEl.parentElement;
+    if(!(discountRow instanceof HTMLElement)) return;
 
     const SHIPPING = 30;
 
@@ -143,10 +144,10 @@ function attachCartListeners(container: HTMLElement): void {
         const target = event.target as HTMLElement;
         const cart = getCart();
 
-        const row = target.closest(".cart-row") as HTMLElement | null;
-        if (!row) return;
+        const row = target.closest(".cart-row");
+        if (!row || !(row instanceof HTMLElement)) return;
 
-        const productId = row.dataset.productId as string;
+        const productId = "" + row.dataset.productId;
 
         const deleteBtn = target.closest(".cart-delete");
         if (deleteBtn) {
@@ -164,7 +165,7 @@ function attachCartListeners(container: HTMLElement): void {
 
         if (!qtySpan || !priceEl || !totalEl) return;
 
-        let quantity = parseInt(qtySpan.textContent || "1", 10);
+        let quantity = parseInt(qtySpan.textContent ?? "1", 10);
 
         if (target.closest(".plus")) {
             quantity += 1;
@@ -205,9 +206,9 @@ function attachClearListener(): void{
 }
 
 function attachCheckoutListener(): void {
-    const btn = document.querySelector("#cart-checkout") as HTMLButtonElement | null;
+    const btn = document.querySelector("#cart-checkout");
 
-    if (!btn) return;
+    if (!btn || !(btn instanceof HTMLElement)) return;
 
     btn.addEventListener("click", () => {
         alert("Thank you for your purchase.");

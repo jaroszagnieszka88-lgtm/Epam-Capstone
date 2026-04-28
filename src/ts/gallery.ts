@@ -1,10 +1,6 @@
 let track: HTMLElement | null = null;
 let slides: HTMLElement[] = [];
-let nextBtn: HTMLButtonElement | null = null;
-let prevBtn: HTMLButtonElement | null = null;
-
 let currentIndex = 0;
-
 let startX = 0;
 let currentX = 0;
 let isDragging = false;
@@ -23,10 +19,6 @@ export function initGallery() {
 
     slides = Array.from(track.children) as HTMLElement[];
     if (slides.length === 0) return;
-
-    nextBtn = document.getElementById("next") as HTMLButtonElement | null;
-    prevBtn = document.getElementById("prev") as HTMLButtonElement | null;
-    if (!nextBtn || !prevBtn) return;
 
     track.addEventListener("touchstart", (e) => {
         onStart(e.touches[0].clientX);
@@ -57,7 +49,7 @@ export function initGallery() {
     });
 }
 
-function onStart(x: number) {
+function onStart(x: number) {  
     if (!track) return;
     startX = x;
     isDragging = true;

@@ -41,7 +41,7 @@ export async function loadProducts(options: LoadProductOptions): Promise<void> {
       console.log(e);
     }
 
-    const sortBy = opts.sortBy || 'default';
+    const sortBy = opts.sortBy ?? 'default';
     if (sortBy && sortBy !== 'default' && !opts.random) {
       if (sortBy === 'priceA') {
         filteredProducts.sort((a, b) => a.price - b.price);
@@ -122,8 +122,8 @@ function attachCardListeners(container: HTMLElement): void {
 function handleCardClick(event: Event): void {
   const target = event.target as HTMLElement;
 
-  const buyButton = target.closest(".ts-btn-buy") as HTMLElement | null;
-  if (!buyButton) return;
+  const buyButton = target.closest(".ts-btn-buy");
+  if (!buyButton || !(buyButton instanceof HTMLElement)) return;
 
   const productId = buyButton.dataset.productId;
   if (!productId) return;

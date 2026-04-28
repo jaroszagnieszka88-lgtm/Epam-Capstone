@@ -14,10 +14,10 @@ export default function initCatalog(): void {
     const colorSelect = document.getElementById("color-select") as HTMLSelectElement | null;
     const categorySelect = document.getElementById("category-select") as HTMLSelectElement | null;
     const salesCheckbox = document.getElementById("sales-checkbox") as HTMLInputElement | null;
-    const filterToggle = document.getElementById("filter") as HTMLElement | null;
-    const filterDetails = document.getElementById("filter-details") as HTMLElement | null;
-    const filterHide = document.getElementById("filter-hide") as HTMLElement | null;
-    const filterClear = document.getElementById("filter-clear") as HTMLElement | null;
+    const filterToggle = document.getElementById("filter");
+    const filterDetails = document.getElementById("filter-details");
+    const filterHide = document.getElementById("filter-hide");
+    const filterClear = document.getElementById("filter-clear");
 
     function buildOptions(): LoadProductOptions {
         return {
@@ -68,8 +68,8 @@ export default function initCatalog(): void {
         reload();
     });
 
-    const paginationContainer = document.getElementById("pagination-controls") as HTMLElement | null;
-    const paginationSummary = document.getElementById("pagination-summary") as HTMLElement | null;
+    const paginationContainer = document.getElementById("pagination-controls");
+    const paginationSummary = document.getElementById("pagination-summary");    
 
     function handleTotalCount(total: number) {
         totalPages = Math.max(1, Math.ceil(total / pageSize));
@@ -80,7 +80,7 @@ export default function initCatalog(): void {
             return;
         }
         renderPagination();
-        if (paginationSummary) {
+        if (paginationSummary && paginationSummary instanceof HTMLElement) {
             const start = Math.min((currentPage - 1) * pageSize + 1, total || 0);
             const end = Math.min(currentPage * pageSize, total);
             paginationSummary.textContent = `Showing ${start}-${end} Of ${total} Results`;
@@ -88,7 +88,7 @@ export default function initCatalog(): void {
     }
 
     function renderPagination() {
-        if (!paginationContainer) return;
+        if (!paginationContainer || !(paginationContainer instanceof HTMLElement)) return;
         paginationContainer.innerHTML = "";
 
         const prev = document.createElement('button');

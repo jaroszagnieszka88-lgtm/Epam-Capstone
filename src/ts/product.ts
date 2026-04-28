@@ -1,6 +1,8 @@
 import { addToCart as cartAddToCart } from './cart';
 import { Product } from './types';
 
+let quantity : number;
+
 export function initProductPreview(): void {
 	const urlParams = new URLSearchParams(window.location.search);
 	const id = urlParams.get('id');
@@ -47,21 +49,14 @@ export function initProductTabs(): void {
 		});
 
 		headers.forEach((h, idx) => {
-			h.addEventListener('click', () => {
-				headers.forEach(hh => hh.querySelector('h2')?.classList.remove('item-active'));
-				h.querySelector('h2')?.classList.add('item-active');
-
-				items.forEach((it, i) => {
-					if (i === idx) it.removeAttribute('hidden');
-					else it.setAttribute('hidden', 'true');
-				});
-			});
+			initTabHeader(h, headers, idx, items);
 		});
+
 		const reviewForm = document.getElementById("reviewForm") as HTMLFormElement;
-		if(reviewForm){
-			reviewForm.addEventListener("submit", e =>{
+		if (reviewForm) {
+			reviewForm.addEventListener("submit", e => {
 				e.preventDefault();
-				if(reviewForm.checkValidity())
+				if (reviewForm.checkValidity())
 					alert("valid");
 				else
 					alert("form not valid");
@@ -70,10 +65,22 @@ export function initProductTabs(): void {
 	});
 }
 
+function initTabHeader(h: HTMLElement, headers: HTMLElement[], idx: number, items: HTMLElement[]) {
+	h.addEventListener('click', () => {
+		headers.forEach(hh => hh.querySelector('h2')?.classList.remove('item-active'));
+		h.querySelector('h2')?.classList.add('item-active');
+
+		items.forEach((it, i) => {
+			if (i === idx) it.removeAttribute('hidden');
+			else it.setAttribute('hidden', 'true');
+		});
+	});
+}
+
 export async function initProductForm(): Promise<void> {
 	const minusBtn = document.getElementById('quantity-minus') as HTMLButtonElement | null;
 	const plusBtn = document.getElementById('quantity-plus') as HTMLButtonElement | null;
-	const qtySpan = document.getElementById('product-quantity') as HTMLElement | null;
+	const qtySpan = document.getElementById('product-quantity');
 	const addBtn = document.getElementById('add-to-cart') as HTMLButtonElement | null;
 	const sizeSelect = document.getElementById('size-select') as HTMLSelectElement | null;
 	const colorSelect = document.getElementById('color-select') as HTMLSelectElement | null;
@@ -82,7 +89,7 @@ export async function initProductForm(): Promise<void> {
 	const priceEl = document.getElementById('product-price') as HTMLSelectElement | null;
 	const ratingEl = document.getElementById('product-rating-stars') as HTMLSelectElement | null;
 
-	if (!qtySpan || !addBtn) return;
+	if (!qtySpan || !(qtySpan instanceof HTMLElement) || !addBtn) return;
 
 	const urlParams = new URLSearchParams(window.location.search);
 	const id = urlParams.get('id');
@@ -99,56 +106,67 @@ export async function initProductForm(): Promise<void> {
 		const allSizes = product.size.split(",");
 		const allColors = product.color.split(",");
 
-		if(nameEl){
+		if (nameEl) {
 			nameEl.textContent = product.name;
 		}
-		if(ratingEl){
+		if (ratingEl) {
 			const goldenStars = "★".repeat(Math.round(product.rating));
-			const normalStars = "★".repeat(5-goldenStars.length);
+			const normalStars = "★".repeat(5 - goldenStars.length);
 			ratingEl.innerHTML = `<span class="golden">${goldenStars}</span>${normalStars}`;
 		}
-		if(priceEl){
-			priceEl.textContent=`$${product.price}`;
+		if (priceEl) {
+			priceEl.textContent = `$${product.price}`;
 		}
-		if (categorySelect) {
-			setPlaceholder(categorySelect, 'Choose category');
-			categories.forEach(c => addOption(c, categorySelect));
-		}
-
-		if (sizeSelect) {
-			setPlaceholder(sizeSelect, 'Choose size');
-			const productSizes: string[] = product && product.size ? product.size.toString().split(',').map((s: string) => s.trim()).filter(Boolean) : [];
-			const sizesToUse = productSizes.length ? productSizes : allSizes;
-			sizesToUse.forEach(s => addOption(s, sizeSelect));
-		}
-
-		if (colorSelect) {
-			setPlaceholder(colorSelect, 'Choose color');
-			const productColors: string[] = product && product.color ? product.color.toString().split(',').map((s: string) => s.trim()).filter(Boolean) : [];
-			const colorsToUse = productColors.length ? productColors : allColors;
-			colorsToUse.forEach(c => addOption(c, colorSelect));
-		}
+		initSelect(categorySelect, categories, sizeSelect, product, allSizes, colorSelect, allColors);
 	} catch (err) {
 		console.error('Failed to load product options:', err);
 	}
 
-	let quantity = parseInt(qtySpan.textContent || '1', 10);
+	quantity = parseInt(qtySpan.textContent ?? '1', 10);
 	if (isNaN(quantity) || quantity < 1) {
 		quantity = 1;
 		qtySpan.textContent = '1';
 	}
 
-	minusBtn?.addEventListener('click', () => {
-		if (quantity <= 1) return;
-		quantity -= 1;
-		qtySpan.textContent = String(quantity);
-	});
+	initPlusMinusBtn(minusBtn, qtySpan, plusBtn);
 
-	plusBtn?.addEventListener('click', () => {
-		quantity += 1;
-		qtySpan.textContent = String(quantity);
-	});
+	initAddBtn(addBtn, id, sizeSelect, colorSelect, categorySelect, qtySpan);
+}
 
+function initSelect(categorySelect: HTMLSelectElement | null,
+	categories: string[],
+	sizeSelect: HTMLSelectElement | null,
+	product: Product,
+	allSizes: string[],
+	colorSelect: HTMLSelectElement | null,
+	allColors: string[]) {
+	if (categorySelect) {
+		setPlaceholder(categorySelect, 'Choose category');
+		categories.forEach(c => addOption(c, categorySelect));
+	}
+
+	if (sizeSelect) {
+		setPlaceholder(sizeSelect, 'Choose size');
+		const productSizes: string[] = product?.size?.toString()
+			.split(',')
+			.map((s: string) => s.trim())
+			.filter(Boolean) ?? [];
+		const sizesToUse = productSizes.length ? productSizes : allSizes;
+		sizesToUse.forEach(s => addOption(s, sizeSelect));
+	}
+
+	if (colorSelect) {
+		setPlaceholder(colorSelect, 'Choose color');
+		const productColors: string[] = product?.color?.toString()
+			.split(',')
+			.map((s: string) => s.trim())
+			.filter(Boolean) ?? [];
+		const colorsToUse = productColors.length ? productColors : allColors;
+		colorsToUse.forEach(c => addOption(c, colorSelect));
+	}
+}
+
+function initAddBtn(addBtn: HTMLButtonElement, id: string | null, sizeSelect: HTMLSelectElement | null, colorSelect: HTMLSelectElement | null, categorySelect: HTMLSelectElement | null, qtySpan: HTMLElement) {
 	addBtn.addEventListener('click', () => {
 		if (!id || !sizeSelect || !colorSelect || !categorySelect
 			|| !sizeSelect.value || !colorSelect.value || !categorySelect.value) {
@@ -163,6 +181,19 @@ export async function initProductForm(): Promise<void> {
 
 		quantity = 1;
 		qtySpan.textContent = '1';
+	});
+}
+
+function initPlusMinusBtn(minusBtn: HTMLButtonElement | null, qtySpan: HTMLElement, plusBtn: HTMLButtonElement | null) {
+	minusBtn?.addEventListener('click', () => {
+		if (quantity <= 1) return;
+		quantity -= 1;
+		qtySpan.textContent = String(quantity);
+	});
+
+	plusBtn?.addEventListener('click', () => {
+		quantity += 1;
+		qtySpan.textContent = String(quantity);
 	});
 }
 
@@ -188,13 +219,17 @@ export function initFakePlaceholders(): void {
 	if (!containers.length) return;
 
 	containers.forEach(container => {
-		const field = container.querySelector<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('input:not([type="checkbox"]), textarea, select');
-		if (!field) return;
+		const field = container.querySelector('input:not([type="checkbox"]), textarea, select');
+		if (!field || !(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement)) return;
 
 		const update = () => {
-			const val = (field as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement).value;
-			if (typeof val === 'string' && val.trim() !== '') container.classList.add('has-value');
-			else container.classList.remove('has-value');
+			const val = field.value;
+
+			if (val.trim() === '') {
+				container.classList.remove('has-value');
+			} else {
+				container.classList.add('has-value');
+			}
 		};
 
 		update();
