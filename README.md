@@ -32,3 +32,9 @@ This will:
 * Compile **TypeScript (`.ts`) files** into JavaScript
 * Compile **SASS (`.scss`) files** into CSS inside the `dist/` folder
 * Launch a local dev server (at http://localhost:3000)
+
+---
+
+## Self Checklist
+
+52/64
